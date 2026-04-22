@@ -1,223 +1,162 @@
 # TRUNG TRAN DUY
 
-**Senior Frontend Engineer / Frontend Lead**
+**Frontend Lead**
 
--   Email: onepercman@gmail.com
--   GitHub: https://github.com/onepercman
--   LinkedIn: https://linkedin.com/in/onepercman
+* Email: [onepercman@gmail.com](mailto:onepercman@gmail.com)
+* Phone: +84 889 388 820
+* GitHub: https://github.com/onepercman
+* LinkedIn: https://linkedin.com/in/onepercman
 
-------------------------------------------------------------------------
+---
 
-## Summary
+## SUMMARY
 
-Senior Frontend Engineer with **4+ years of experience building complex
-frontend systems** across enterprise platforms, financial technology
-products, and consumer applications.
+Frontend Engineer with 4+ years of experience building scalable, high-performance frontend systems across fintech, enterprise, and consumer products.
 
-Specialized in:
+Strong focus on real-time systems, complex UI architecture, and zero-to-one product development. Recognized for deep technical expertise, with experience leading frontend initiatives, improving engineering quality, and delivering production-ready systems.
 
--   Scalable frontend architecture
--   Data‑intensive and real‑time interfaces
--   Financial dashboards and trading systems
--   Zero‑to‑one product development
+---
 
-Experienced in **technical leadership, mentoring engineers, and
-delivering high‑performance production systems**.
+## CORE SKILLS
 
-------------------------------------------------------------------------
+**Frontend:**
+React, TypeScript, Next.js, Remix, Vite
 
-## Core Skills
+**UI & Libraries:**
+TailwindCSS, Shadcn/UI, TanStack (Query, Table, Router)
 
-**Frontend** - React - TypeScript - Next.js - Vite
+**State Management:**
+Redux, Zustand, Valtio
 
-**Styling** - TailwindCSS
+**Architecture & Performance:**
 
-**State Management** - Redux - Zustand - Valtio
+* Scalable frontend architecture
+* Design systems & component-driven development
+* Real-time UI systems
+* Performance optimization for data-heavy applications
 
-**Architecture** - Design Systems - Scalable Frontend Architecture -
-Component‑driven development
+**Creative Development:**
 
-**Performance** - Optimization - Real‑time UI systems - Data‑heavy
-interfaces
+* High-end landing pages with advanced animations
+* Close collaboration with designers to deliver visually rich experiences
 
-------------------------------------------------------------------------
+**Backend / Supporting Stack:**
+NestJS, Hono
 
-## Experience
+**AI & Tooling:**
+Claude Code (AI agent-assisted development)
 
-### Senior Frontend Engineer (Solo)
+---
 
-**TheVapeLabs**\
-Feb 2024 -- Nov 2024
+## EXPERIENCE
 
-Worked as the **sole frontend engineer**, owning UI/UX development
-across multiple products.
+### **EnhancedLab** — *Frontend Lead*
 
-Key responsibilities:
+*Feb 2024 – Nov 2024*
 
--   Built and maintained the main web application, marketing site, and
-    landing pages
--   Designed scalable frontend architecture for rapid iteration and
-    maintainability
--   Developed interfaces for a device‑integrated digital platform
--   Translated hardware states and system telemetry into clear user
-    experiences
+**Project: TheVapeLabs**
 
-------------------------------------------------------------------------
+* Responsible for all web products within the ecosystem
+* Built DApp interfaces, sale pages, and marketing websites
+* Designed scalable frontend architecture for multi-product system
+* Delivered consistent UI/UX across product surfaces
+* Acted as creative developer, collaborating with designers to build high-end animated landing pages
 
-### Frontend Lead / Senior Frontend Engineer
+---
 
-**Confidential**\
-Nov 2023 -- Aug 2024
+### **SyncX (Fully Confidential)** — *Frontend Lead*
 
-Led frontend development across several **confidential fintech and
-data‑driven platforms**.
+*Nov 2023 – Aug 2024*
 
-Responsibilities:
+**Project: Confidential – P2P Trading Platform**
 
--   Frontend architecture design
--   Maintaining engineering standards and code quality
--   Implementing complex UI logic for real‑time financial systems
+* Developed escrow-based transaction flows
+* Designed UI for risk visibility and transparency
+* Delivered stable and predictable trading experience
 
-#### High‑Leverage Trading Platform (Confidential)
+**Project: Confidential – AI Agent Platform**
 
-Nov 2023 -- Mar 2024
+* Built end-to-end agent configuration flows
+* Implemented subscription and usage-based system
+* Optimized UX for non-technical users
 
-Frontend Lead for a **real‑time trading platform supporting
-high‑leverage financial instruments**.
+**Project: Confidential – Trading Platform**
 
-Key work:
+* Led frontend architecture for real-time trading system
+* Built price charts, trading dashboards, and orderbook visualization
+* Implemented live trade updates and low-latency UI rendering
+* Developed accurate PnL / ROI calculation systems
 
--   Built real‑time price charts and trading dashboards
--   Implemented orderbook visualization and live trade updates
--   Developed accurate PnL and ROI calculation systems
--   Designed interactive prediction‑style market modules
+---
 
-#### AI Agent Platform (Confidential)
+### **Moonlab** — *Frontend Lead*
 
-Feb 2024 -- Jun 2024
+*Apr 2022 – Aug 2023*
 
-Solo frontend development for a platform allowing users to create and
-share AI agents.
+**Project: Confidential – Web3 Client Platforms (200+ Projects)**
 
-Implemented:
+* Delivered 200+ outsourced Web3 products for international clients
+* Covered major product categories: DEX, CEX, launchpads, NFT marketplaces, and trading tools
+* Built reusable frontend architectures to accelerate delivery across multiple projects
+* Ensured consistent quality, performance, and production readiness at scale
+* Acted as creative developer across projects, delivering high-end landing pages with rich animations
 
--   Agent configuration flows
--   Subscription and usage systems
--   UX optimized for non‑technical users
+**Project: Mcity**
 
-#### P2P Trading Platform (Confidential)
+* Responsible for all web products of the project
+* Built interactive 3D DApps for metaverse environments
+* Developed NFT marketplace features within 3D context
+* Optimized rendering performance using Three.js and react-three-fiber
+* Collaborated with designers to deliver immersive visual experiences
 
-May 2024 -- Aug 2024
+**Project: RunTogether**
 
-Frontend development for a **peer‑to‑peer trading platform with
-escrow‑based transaction flows**.
+* Responsible for all web products of the project
+* Built Move-to-Earn platform with DApp integration
+* Developed NFT marketplace and user-facing dashboards
+* Contributed to product achieving:
 
-Focused on:
+  * 7,413 assets sold in 30 minutes
+  * 15,000+ downloads in 6 days
+  * Top #2 on Google Play Vietnam
 
--   Transparent transaction processes
--   Risk visibility for users
--   Clear and reliable trading UX
+**Project: Animverse**
 
-------------------------------------------------------------------------
+* Responsible for all web products of the project
+* Built DApps including NFT marketplace, IDO platform, and sale pages
+* Designed scalable frontend systems for GameFi ecosystem
+* Delivered animated, high-conversion landing pages in collaboration with design team
 
-### Frontend Lead
+**Additional Contributions:**
 
-**Confidential**\
-Apr 2022 -- Aug 2023
+* Defined frontend architecture and engineering standards
+* Mentored engineers and trained interns → full-time conversion
 
-Responsible for frontend direction across multiple digital platforms.
+---
 
-Key responsibilities:
+### **Teracom** — *Frontend Engineer (Intern → Junior)*
 
--   Shared ownership of frontend architecture
--   Established coding standards and development workflow
--   Participated in hiring and mentoring engineers
--   Trained two frontend interns who later became full‑time engineers
+*Jun 2021 – Apr 2022*
 
-#### Consumer Fitness Platform
+**Project: Government & Enterprise Systems**
 
-Mar 2022 -- Dec 2022
+* Built CMS platforms and government portals
+* Introduced SSR to improve SEO and performance
 
-Frontend Lead for a consumer fitness application integrated with
-physical products.
+**Project: Son La HPC**
 
-Launch metrics:
+* Refactored large-scale frontend system
+* Enhanced structure and code quality
 
--   7,413 digital assets sold in 30 minutes
--   15,000+ downloads within 6 days
--   Top #2 on Google Play Vietnam
--   3,000+ active users
+**Project: Vinh Tan TPC**
 
-#### 3D Interactive Platform
+* Migrated legacy system to Next.js + TypeScript
+* Improved performance and maintainability
 
-Dec 2022 -- Jun 2023
+---
 
-Led frontend development for a **3D web experience**.
+## EDUCATION
 
-Tech highlights:
-
--   Three.js
--   react-three-fiber
--   Canvas-based rendering
-
-Focused on balancing visual richness with performance.
-
-#### Digital Marketplace Platform
-
-Nov 2021 -- Mar 2022
-
-Zero‑to‑one product where I owned the entire frontend stack.
-
-Built:
-
--   Landing pages
--   Marketplace interface
--   Presale and campaign systems
-
-------------------------------------------------------------------------
-
-### Private Client Projects
-
-**Confidential**\
-2022 -- 2023
-
-Delivered multiple **white‑label financial and digital platforms** for
-international partners.
-
-Examples include:
-
--   Trading dashboards
--   Digital asset marketplaces
--   Transaction platforms
-
-Focused on **production‑ready UI systems and reliable delivery**.
-
-------------------------------------------------------------------------
-
-### Frontend Engineer (Intern → Junior)
-
-**Teracom**\
-Jun 2021 -- Apr 2022
-
-Worked on digital transformation projects for government and enterprise
-organizations.
-
-Key contributions:
-
--   Migrated legacy systems to Next.js + TypeScript
--   Introduced SSR for improved SEO and performance
--   Refactored large frontend codebases
-
-Representative projects:
-
--   CMS platforms
--   Government portals
--   Enterprise systems for national power companies
-
-------------------------------------------------------------------------
-
-## Education
-
-**Software Engineering**\
-Academy of Cryptography Techniques\
-2017 -- 2022
+**Software Engineering**
+Academy of Cryptography Techniques
+*2017 – 2022*

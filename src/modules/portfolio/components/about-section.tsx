@@ -214,6 +214,12 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 									))}
 								</div>
 							))}
+							<a
+								href={`mailto:${contact.email}`}
+								className="mt-1 font-mono text-[9px] text-muted-fg transition-colors hover:text-primary"
+							>
+								{contact.email}
+							</a>
 						</div>
 						<div className="flex flex-col gap-1">
 							<div className="h-px w-8 bg-fg/20" />

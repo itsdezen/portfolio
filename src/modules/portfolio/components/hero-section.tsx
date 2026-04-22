@@ -190,7 +190,8 @@ export function HeroSection({
 					</button>
 					<a
 						href="/cv.pdf"
-						download
+						target="_blank"
+						rel="noopener noreferrer"
 						className={cn(
 							"group flex items-center gap-2 rounded-full border px-6 py-3 font-medium text-sm transition-all duration-300",
 							"border-border bg-bg/50 text-fg backdrop-blur-sm",
@@ -199,7 +200,7 @@ export function HeroSection({
 						)}
 					>
 						<Download className="h-4 w-4" />
-						Download CV
+						View CV
 					</a>
 				</div>
 

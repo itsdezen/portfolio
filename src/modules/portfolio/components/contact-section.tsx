@@ -110,7 +110,8 @@ export function ContactSection({ contact }: ContactSectionProps) {
 				>
 					<a
 						href="/cv.pdf"
-						download
+						target="_blank"
+						rel="noopener noreferrer"
 						className={cn(
 							"group inline-flex items-center gap-2 rounded-full border px-8 py-4 font-medium text-sm transition-all duration-300",
 							"border-primary bg-primary/10 text-fg backdrop-blur-sm",
@@ -119,7 +120,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
 						)}
 					>
 						<Download className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5" />
-						Download My CV
+						View My CV
 					</a>
 				</div>
 			</div>

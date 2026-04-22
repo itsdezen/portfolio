@@ -36,6 +36,7 @@ export interface AboutInfo {
 
 export interface ContactInfo {
 	email: string
+	phone?: string
 	socials: {
 		name: string
 		url: string

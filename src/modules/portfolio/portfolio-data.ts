@@ -9,113 +9,181 @@ import type {
 export const heroData = {
 	name: "Trung Tran Duy",
 	nickname: "onepercman",
-	headline: "Fullstack Developer",
+	headline: "Frontend Engineer",
 	tagline: "Less complexity, more impact",
 	location: "Hanoi, Vietnam",
-	experience: "5+ years",
+	experience: "4+ years",
 	intro:
-		"Senior Frontend Engineer with 5+ years of experience building complex frontend systems across enterprise, consumer, and fintech products. Strong background in frontend architecture, data-heavy interfaces, real-time systems, and zero-to-one product development.",
+		"Frontend Engineer with 4+ years of experience building scalable, high-performance frontend systems across fintech, enterprise, and consumer products. Strong focus on real-time systems, complex UI architecture, and zero-to-one product development. Recognized for deep technical expertise, with experience leading frontend initiatives, improving engineering quality, and delivering production-ready systems.",
 }
 
 export const projects: Project[] = [
+	// 2024 Projects
 	{
 		id: "1",
-		title: "Fitness Rewards Platform",
+		title: "TheVapeLabs",
 		description:
-			"Gamified fitness platform integrating NFC-enabled physical shoes with digital rewards. Achieved 7,413 digital collectibles sold in 30 minutes, 15,000+ downloads in 6 days, and ranked Top #2 on Google Play Vietnam. Note: Project name anonymized for confidentiality.",
+			"Responsible for all web products within the ecosystem. Built DApp interfaces, sale pages, and marketing websites. Designed scalable frontend architecture for multi-product system with consistent UI/UX. Acted as creative developer, collaborating with designers to build high-end animated landing pages. Note: Project name anonymized for confidentiality.",
 		image:
-			"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=1000&fit=crop&q=80",
-		category: "Fintech / Gamification",
-		year: "2022",
-		role: "Frontend Lead",
-		tags: ["React", "TypeScript", "Wagmi", "Ethers.js", "Real-time"],
-		link: "#",
-		gradientFrom: "rgba(16, 185, 129, 0.9)",
-		gradientTo: "rgba(5, 150, 105, 0.9)",
-		layout: "desktop",
-	},
-	{
-		id: "2",
-		title: "Derivatives Trading Platform",
-		description:
-			"High-leverage orderbook-based trading platform supporting up to x1000 leverage. Built real-time price charts (BTC, ETH), orderbook and trade updates, accurate PnL/ROI calculations, and prediction-market module. Note: Project name anonymized for confidentiality.",
-		image:
-			"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1600&h=1000&fit=crop&q=80",
-		category: "Fintech / Trading",
-		year: "2023-2024",
-		role: "Frontend Lead",
-		tags: ["React", "TypeScript", "WebSocket", "Real-time", "Wagmi"],
-		link: "#",
-		gradientFrom: "rgba(249, 115, 22, 0.9)",
-		gradientTo: "rgba(234, 179, 8, 0.9)",
-		layout: "desktop",
-	},
-	{
-		id: "3",
-		title: "Metaverse Experience Platform",
-		description:
-			"Immersive 3D virtual world platform built with Three.js and react-three-fiber. Canvas-based rendering architecture focused on balancing visual richness with performance at scale. Note: Project name anonymized for confidentiality.",
-		image:
-			"https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1600&h=1000&fit=crop&q=80",
-		category: "3D Web / Experience",
-		year: "2022-2023",
-		role: "Frontend Lead",
-		tags: ["React", "Three.js", "react-three-fiber", "WebGL", "3D"],
-		link: "#",
-		gradientFrom: "rgba(168, 85, 247, 0.9)",
-		gradientTo: "rgba(236, 72, 153, 0.9)",
-		layout: "desktop",
-	},
-	{
-		id: "4",
-		title: "AI Agent Creation Platform",
-		description:
-			"SaaS platform enabling users to create, configure, and share AI agents. Solo frontend development featuring agent configuration flows, subscription management, and token-based features. UX optimized for non-technical users. Note: Project name anonymized for confidentiality.",
-		image:
-			"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1600&h=1000&fit=crop&q=80",
-		category: "AI / SaaS",
+			"https://link3-image.cyberconnect.dev/e669e0f2-1b0d-48c1-8e0d-04b7dd18eb51/avatarFolder/df2f385c8cb24fb8",
+		category: "Web3 / Ecosystem",
 		year: "2024",
-		role: "Solo Frontend",
-		tags: ["React", "TypeScript", "Next.js", "AI", "SaaS"],
-		link: "#",
-		gradientFrom: "rgba(59, 130, 246, 0.9)",
-		gradientTo: "rgba(6, 182, 212, 0.9)",
-		layout: "desktop",
-	},
-	{
-		id: "5",
-		title: "Premarket & OTC Trading Platform",
-		description:
-			"P2P trading platform with escrow-based smart contracts for premarket and OTC transactions. Focused on transparency, risk visibility, and clear transaction flows for decentralized trading. Note: Project name anonymized for confidentiality.",
-		image:
-			"https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1600&h=1000&fit=crop&q=80",
-		category: "Fintech / Trading",
-		year: "2024",
-		role: "Frontend Engineer",
-		tags: ["React", "TypeScript", "Ethers.js", "Wagmi", "Smart Contracts"],
-		link: "#",
-		gradientFrom: "rgba(6, 182, 212, 0.9)",
-		gradientTo: "rgba(14, 165, 233, 0.9)",
-		layout: "desktop",
-	},
-	{
-		id: "6",
-		title: "Hardware Integration Platform",
-		description:
-			"DePIN (Decentralized Physical Infrastructure) product integrating IoT hardware devices with software systems. Translated complex hardware states and system data into intuitive user experiences. Built complete web app, marketing site, and landing pages. Note: Project name anonymized for confidentiality.",
-		image:
-			"https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&h=1000&fit=crop&q=80",
-		category: "IoT / Hardware",
-		year: "2024",
-		role: "Solo Frontend",
-		tags: ["React", "TypeScript", "IoT", "Hardware Integration", "Solidity"],
+		role: "Frontend Lead",
+		tags: ["React", "TypeScript", "DApp", "Animation", "TailwindCSS"],
 		link: "#",
 		gradientFrom: "rgba(236, 72, 153, 0.9)",
 		gradientTo: "rgba(219, 39, 119, 0.9)",
 		layout: "desktop",
 	},
 	{
+		id: "2",
+		title: "AI Agent Platform",
+		description:
+			"SaaS platform enabling users to create, configure, and share AI agents. Built end-to-end agent configuration flows, subscription and usage-based system. UX optimized for non-technical users. Note: Project name anonymized for confidentiality.",
+		image:
+			"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1600&h=1000&fit=crop&q=80",
+		category: "AI / SaaS",
+		year: "2024",
+		role: "Frontend Lead",
+		tags: ["React", "TypeScript", "Next.js", "AI", "Subscription"],
+		link: "#",
+		gradientFrom: "rgba(59, 130, 246, 0.9)",
+		gradientTo: "rgba(6, 182, 212, 0.9)",
+		layout: "desktop",
+	},
+	// 2023-2024 Projects
+	{
+		id: "3",
+		title: "Trading Platform",
+		description:
+			"Real-time trading system supporting up to x1000 leverage. Led frontend architecture for price charts, trading dashboards, and orderbook visualization with live trade updates and low-latency UI rendering. Developed accurate PnL/ROI calculation systems. Note: Project name anonymized for confidentiality.",
+		image:
+			"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1600&h=1000&fit=crop&q=80",
+		category: "Fintech / Trading",
+		year: "2023-2024",
+		role: "Frontend Lead",
+		tags: ["React", "TypeScript", "WebSocket", "Real-time", "Charts"],
+		link: "#",
+		gradientFrom: "rgba(249, 115, 22, 0.9)",
+		gradientTo: "rgba(234, 179, 8, 0.9)",
+		layout: "desktop",
+	},
+	{
+		id: "4",
+		title: "P2P Trading Platform",
+		description:
+			"P2P trading platform with escrow-based transaction flows for premarket and OTC transactions. Designed UI for risk visibility and transparency, delivering stable and predictable trading experience. Note: Project name anonymized for confidentiality.",
+		image:
+			"https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1600&h=1000&fit=crop&q=80",
+		category: "Fintech / P2P",
+		year: "2023-2024",
+		role: "Frontend Lead",
+		tags: ["React", "TypeScript", "Ethers.js", "Wagmi", "Escrow"],
+		link: "#",
+		gradientFrom: "rgba(6, 182, 212, 0.9)",
+		gradientTo: "rgba(14, 165, 233, 0.9)",
+		layout: "desktop",
+	},
+	// 2022-2023 Projects
+	{
+		id: "5",
+		title: "200+ Confidential Web3 Projects",
+		description:
+			"Delivered 200+ outsourced Web3 products for international clients covering major product categories: DEX, CEX, launchpads, NFT marketplaces, and trading tools. Built reusable frontend architectures to accelerate delivery across multiple projects. Ensured consistent quality, performance, and production readiness at scale. Acted as creative developer across projects, delivering high-end landing pages with rich animations.",
+		image:
+			"https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1600&h=1000&fit=crop&q=80",
+		category: "Web3 / Multi-Project",
+		year: "2022-2023",
+		role: "Frontend Lead",
+		tags: ["React", "TypeScript", "Web3", "DEX", "NFT", "DApp"],
+		link: "#",
+		gradientFrom: "rgba(99, 102, 241, 0.9)",
+		gradientTo: "rgba(139, 92, 246, 0.9)",
+		layout: "desktop",
+	},
+	{
+		id: "6",
+		title: "RunTogether",
+		description:
+			"Move-to-Earn platform with DApp integration, NFT marketplace, and user-facing dashboards. Achieved 7,413 assets sold in 30 minutes, 15,000+ downloads in 6 days, and ranked Top #2 on Google Play Vietnam. Note: Project name anonymized for confidentiality.",
+		image:
+			"https://thanhnien.mediacdn.vn/Uploaded/nthanhluan/2022_04_24/278949514-463984475521822-5992632726712348321-n-575.jpg",
+		category: "Web3 / Move-to-Earn",
+		year: "2022-2023",
+		role: "Frontend Lead",
+		tags: ["React", "TypeScript", "Web3", "NFT", "DApp"],
+		link: "#",
+		gradientFrom: "rgba(16, 185, 129, 0.9)",
+		gradientTo: "rgba(5, 150, 105, 0.9)",
+		layout: "desktop",
+	},
+	{
 		id: "7",
+		title: "Mcity",
+		description:
+			"Interactive 3D DApps for metaverse environments built with Three.js and react-three-fiber. Developed NFT marketplace features within 3D context with optimized rendering performance. Collaborated with designers to deliver immersive visual experiences. Note: Project name anonymized for confidentiality.",
+		image:
+			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPkAeiOMMshjSjeb2-97RCcV_J8Bmz7M-9iw&s",
+		category: "Web3 / Metaverse",
+		year: "2022-2023",
+		role: "Frontend Lead",
+		tags: ["React", "Three.js", "react-three-fiber", "WebGL", "NFT"],
+		link: "#",
+		gradientFrom: "rgba(168, 85, 247, 0.9)",
+		gradientTo: "rgba(236, 72, 153, 0.9)",
+		layout: "desktop",
+	},
+	{
+		id: "8",
+		title: "Animverse",
+		description:
+			"Built DApps including NFT marketplace, IDO platform, and sale pages. Designed scalable frontend systems for GameFi ecosystem. Delivered animated, high-conversion landing pages in collaboration with design team. Note: Project name anonymized for confidentiality.",
+		image:
+			"https://cdn.dorahacks.io/static/files/18f9530333f823fadc8886540d28eb86.png",
+		category: "Web3 / GameFi",
+		year: "2022-2023",
+		role: "Frontend Lead",
+		tags: ["React", "TypeScript", "Web3", "GameFi", "IDO"],
+		link: "#",
+		gradientFrom: "rgba(245, 158, 11, 0.9)",
+		gradientTo: "rgba(251, 146, 60, 0.9)",
+		layout: "desktop",
+	},
+	// 2021-2022 Projects (Teracom)
+	{
+		id: "9",
+		title: "Son La HPC",
+		description:
+			"Refactored large-scale frontend system for hydropower plant management. Enhanced structure and code quality, improving maintainability and performance for enterprise-grade government infrastructure system.",
+		image:
+			"https://cdn-i.vtcnews.vn/resize/th/upload/2023/07/16/nhieu-nha-may-thuy-dien-tang-cong-suat-phat-dien-xa-tran-don-lu-11163427.jpg",
+		category: "Enterprise / Government",
+		year: "2021-2022",
+		role: "Frontend Engineer",
+		tags: ["React", "TypeScript", "Enterprise", "Refactoring"],
+		link: "#",
+		gradientFrom: "rgba(34, 197, 94, 0.9)",
+		gradientTo: "rgba(22, 163, 74, 0.9)",
+		layout: "desktop",
+	},
+	{
+		id: "10",
+		title: "Vinh Tan TPC",
+		description:
+			"Migrated legacy thermal power plant management system to Next.js + TypeScript. Improved performance and maintainability with modern architecture, introducing SSR for better SEO and user experience.",
+		image: "https://dl.vinhtantpc.com.vn:8888/img/3334.png",
+		category: "Enterprise / Government",
+		year: "2021-2022",
+		role: "Frontend Engineer",
+		tags: ["Next.js", "TypeScript", "SSR", "Migration"],
+		link: "#",
+		gradientFrom: "rgba(59, 130, 246, 0.9)",
+		gradientTo: "rgba(37, 99, 235, 0.9)",
+		layout: "desktop",
+	},
+	// Open Source Projects (2024)
+	{
+		id: "11",
 		title: "Tailwind Color Schemes Plugin",
 		description:
 			"Open source Tailwind CSS plugin that provides a flexible way to define and use color schemes. Supports global colors, scheme-specific colors with optional opacity, and seamless integration with Tailwind's design system. Published on npm for the developer community.",
@@ -131,7 +199,7 @@ export const projects: Project[] = [
 		layout: "desktop",
 	},
 	{
-		id: "8",
+		id: "12",
 		title: "use-composed-refs",
 		description:
 			"Lightweight utility library for managing multiple refs in reusable React components with TypeScript support. Simplifies ref handling by providing an easy-to-use hook and utility function, enabling better ref management and flexibility in complex component structures.",
@@ -147,7 +215,7 @@ export const projects: Project[] = [
 		layout: "desktop",
 	},
 	{
-		id: "9",
+		id: "13",
 		title: "use-valtio-store",
 		description:
 			"React hook for managing state using Valtio with support for persistent states via localStorage and sessionStorage. Provides a simple and powerful way to handle state management with built-in persistence capabilities for React applications.",
@@ -163,7 +231,7 @@ export const projects: Project[] = [
 		layout: "desktop",
 	},
 	{
-		id: "10",
+		id: "14",
 		title: "TanStack Start Starter",
 		description:
 			"Production-ready starter template for TanStack Start with modern React development setup. Features full-stack TypeScript, file-based routing, SSR support, and pre-configured tooling for building high-performance web applications with TanStack ecosystem.",
@@ -182,9 +250,9 @@ export const projects: Project[] = [
 export const aboutData: AboutInfo = {
 	title: "onepercman",
 	description: [
-		"I'm Trung Tran Duy (aka onepercman), a Fullstack Developer with 5+ years of experience building complex frontend systems across enterprise, consumer, and fintech products.",
-		"Strong background in frontend architecture, data-heavy interfaces, real-time systems, and zero-to-one product development. Experienced in technical leadership, mentoring engineers, and delivering production systems under scale and performance constraints.",
-		"Core expertise: React, TypeScript, Next.js, Vite, TailwindCSS, Redux, Zustand, Design Systems, and Performance Optimization. Backend experience with Node.js. Also working with Flutter (Dart) and Go-lang for various projects.",
+		"I'm Trung Tran Duy (aka onepercman), a Frontend Engineer with 4+ years of experience building scalable, high-performance frontend systems across fintech, enterprise, and consumer products.",
+		"Strong focus on real-time systems, complex UI architecture, and zero-to-one product development. Recognized for deep technical expertise, with experience leading frontend initiatives, improving engineering quality, and delivering production-ready systems.",
+		"Core expertise: React, TypeScript, Next.js, Remix, Vite, TailwindCSS, Shadcn/UI, TanStack (Query, Table, Router), Redux, Zustand, Valtio, Design Systems, and Performance Optimization. Also experienced in creative development - building high-end landing pages with advanced animations in close collaboration with designers.",
 	],
 	image: "/avatar.jpeg",
 	images: ["/avatar.jpeg", "/portrait.jpeg"],
@@ -194,19 +262,19 @@ export const aboutData: AboutInfo = {
 export const experiences: Experience[] = [
 	{
 		id: "1",
-		company: "TheVapeLabs",
-		role: "Senior Frontend Engineer (Solo)",
+		company: "EnhancedLab",
+		role: "Frontend Lead",
 		period: "Feb 2024 – Nov 2024",
 		description:
-			"Owned UI/UX across all products. Built web app, marketing site, and DePIN product integrating physical vape devices with software.",
+			"Responsible for all web products within TheVapeLabs ecosystem. Built DApp interfaces, sale pages, and marketing websites. Designed scalable frontend architecture for multi-product system with consistent UI/UX. Acted as creative developer, collaborating with designers to build high-end animated landing pages.",
 	},
 	{
 		id: "2",
-		company: "The X Lab",
-		role: "Frontend Lead / Senior Frontend Engineer",
+		company: "SyncX (Fully Confidential)",
+		role: "Frontend Lead",
 		period: "Nov 2023 – Aug 2024",
 		description:
-			"Led frontend architecture across multiple confidential products including derivatives trading platform (x1000 leverage), AI agent platform, and DeFi premarket/OTC platform.",
+			"Led frontend architecture across multiple confidential products: P2P Trading Platform with escrow-based transaction flows, AI Agent Platform with end-to-end agent configuration and subscription systems, and Trading Platform with real-time price charts, orderbook visualization, live trade updates, and accurate PnL/ROI calculations.",
 	},
 	{
 		id: "3",
@@ -214,7 +282,7 @@ export const experiences: Experience[] = [
 		role: "Frontend Lead",
 		period: "Apr 2022 – Aug 2023",
 		description:
-			"First Frontend Lead role. Led Run Together (7,413 NFTs sold in 30min, Top #2 Google Play Vietnam), Mcity metaverse platform, and Animverse GameFi. Established coding standards and mentored 2 interns to full-time engineers.",
+			"Delivered 200+ outsourced Web3 products (DEX, CEX, launchpads, NFT marketplaces, trading tools). Led RunTogether (7,413 assets sold in 30 minutes, 15,000+ downloads in 6 days, Top #2 Google Play Vietnam), Mcity metaverse platform with Three.js, and Animverse GameFi ecosystem. Defined frontend architecture and engineering standards, mentored engineers and trained interns to full-time conversion.",
 	},
 	{
 		id: "4",
@@ -222,12 +290,13 @@ export const experiences: Experience[] = [
 		role: "Frontend Engineer (Intern → Junior)",
 		period: "Jun 2021 – Apr 2022",
 		description:
-			"Digital transformation projects for government and state-owned enterprises. Migrated legacy systems to Next.js + TypeScript, introduced SSR for improved SEO and performance.",
+			"Built CMS platforms and government portals. Introduced SSR to improve SEO and performance. Refactored large-scale frontend systems (Son La HPC) and migrated legacy systems to Next.js + TypeScript (Vinh Tan TPC).",
 	},
 ]
 
 export const contactData: ContactInfo = {
 	email: "onepercman@gmail.com",
+	phone: "+84 889 388 820",
 	socials: [
 		{
 			name: "GitHub",

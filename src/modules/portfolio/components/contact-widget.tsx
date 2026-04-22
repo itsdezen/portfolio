@@ -91,7 +91,8 @@ export function ContactWidget({ contact }: ContactWidgetProps) {
 			{/* CV Download */}
 			<a
 				href="/cv.pdf"
-				download
+				target="_blank"
+				rel="noopener noreferrer"
 				className={cn(
 					"group/cv flex items-center justify-center gap-2 rounded-lg border px-4 py-3 text-center font-medium text-[10px] transition-all md:py-4",
 					"border-primary bg-primary/10 text-fg",
@@ -100,7 +101,7 @@ export function ContactWidget({ contact }: ContactWidgetProps) {
 				)}
 			>
 				<Download className="h-4 w-4 transition-transform group-hover/cv:translate-y-0.5" />
-				Download CV
+				View CV
 			</a>
 		</div>
 	)

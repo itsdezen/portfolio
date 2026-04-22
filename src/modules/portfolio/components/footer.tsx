@@ -25,11 +25,12 @@ export function Footer() {
 					{/* Center - CV Download */}
 					<a
 						href="/cv.pdf"
-						download
+						target="_blank"
+						rel="noopener noreferrer"
 						className="group flex items-center gap-2 font-medium text-base text-muted-fg transition-colors hover:text-fg"
 					>
 						<Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-						Download CV
+						View CV
 					</a>
 
 					{/* Right - Social Links */}
