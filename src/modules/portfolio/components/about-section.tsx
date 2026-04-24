@@ -196,7 +196,7 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 			>
 				{/* Row 1-2: Name + Portrait + Bio */}
 				{/* Name Card */}
-				<div className="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-4 backdrop-blur-md md:col-span-2 md:row-span-2">
+				<div className="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-4 backdrop-blur-md md:col-span-2 md:row-span-1">
 					<div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
 						<div className="h-full w-full scale-110 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] mix-blend-overlay blur-3xl will-change-transform" />
 					</div>
@@ -224,7 +224,7 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 						<div className="flex flex-col gap-1">
 							<div className="h-px w-8 bg-fg/20" />
 							<span className="font-mono text-[8px] text-muted-fg uppercase tracking-[0.15em] opacity-70">
-								Fullstack Developer
+								Frontend Engineer
 							</span>
 						</div>
 					</div>
@@ -262,33 +262,32 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 						</div>
 						<div className="space-y-2">
 							<p className="text-[10px] text-fg leading-relaxed md:text-[11px]">
-								Solo developer with 5+ years building{" "}
-								<strong className="text-primary">
-									production-ready applications
-								</strong>{" "}
-								across enterprise, fintech, and blockchain domains. Specialized
-								in modern web architecture, real-time systems, and developer
-								tooling.
+								Frontend Engineer with{" "}
+								<strong className="text-primary">4+ years of experience</strong>{" "}
+								building scalable, high-performance frontend systems across
+								fintech, enterprise, and consumer products.
 							</p>
 							<p className="hidden text-[10px] text-muted-fg leading-relaxed opacity-80 md:block">
-								Currently exploring{" "}
-								<strong className="text-primary">AI-assisted workflows</strong>,
-								building analytics platforms, and designing component libraries.
-								Also a music producer experimenting with creative tech.
+								Strong focus on{" "}
+								<strong className="text-primary">real-time systems</strong>,
+								complex UI architecture, and zero-to-one product development.
+								Recognized for deep technical expertise, with experience leading
+								frontend initiatives, improving engineering quality, and
+								delivering production-ready systems.
 							</p>
 						</div>
 						<div className="mt-2 flex flex-wrap gap-1">
 							<span className="rounded-full bg-primary/10 px-2 py-0.5 text-[8px] text-primary">
-								5+ years
+								4+ years
 							</span>
 							<span className="rounded-full bg-muted/30 px-2 py-0.5 text-[8px] text-muted-fg">
-								AI Research
+								Frontend Lead
 							</span>
 							<span className="rounded-full bg-muted/30 px-2 py-0.5 text-[8px] text-muted-fg">
-								Fullstack
+								Real-time Systems
 							</span>
 							<span className="rounded-full bg-muted/30 px-2 py-0.5 text-[8px] text-muted-fg">
-								DevTools
+								Web3
 							</span>
 						</div>
 					</div>
@@ -298,7 +297,7 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 				{/* Experience - Auto Slide */}
 				<div
 					ref={experienceRef}
-					className="group relative col-span-2 row-span-1 cursor-pointer overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-3 backdrop-blur-md transition-all duration-300 hover:border-primary/50 md:col-span-2 md:row-span-1"
+					className="group relative col-span-2 row-span-2 cursor-pointer overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-3 backdrop-blur-md transition-all duration-300 hover:border-primary/50 md:col-span-2 md:row-span-2"
 				>
 					<div className="relative h-full w-full overflow-hidden">
 						{/* Content Container - Auto slides vertically */}
@@ -313,10 +312,10 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 								</div>
 								<div className="space-y-0.5">
 									<span className="block font-semibold text-[10px] text-fg">
-										Frontend Lead · Solo Builder
+										Frontend Engineer
 									</span>
 									<p className="text-[8px] text-muted-fg leading-tight opacity-70">
-										Auto-cycling...
+										4+ years · 200+ projects
 									</p>
 								</div>
 							</div>
@@ -328,18 +327,34 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 								<div className="space-y-1">
 									<div>
 										<p className="font-semibold text-[9px] text-fg">
-											Moonlab (2022-2023)
+											EnhancedLab (Feb 2025 – Nov 2025)
 										</p>
 										<p className="text-[8px] text-muted-fg opacity-70">
-											Frontend Lead · Mentored team
+											Frontend Lead · DApp & Marketing
 										</p>
 									</div>
 									<div>
 										<p className="font-semibold text-[9px] text-fg">
-											Teracom (2020-2022)
+											SyncX (Nov 2023 – Aug 2024)
 										</p>
 										<p className="text-[8px] text-muted-fg opacity-70">
-											Junior → Mid · Enterprise apps
+											Frontend Lead · Trading Platform
+										</p>
+									</div>
+									<div>
+										<p className="font-semibold text-[9px] text-fg">
+											Moonlab (Apr 2022 – Aug 2023)
+										</p>
+										<p className="text-[8px] text-muted-fg opacity-70">
+											Frontend Lead · 200+ Web3 Projects
+										</p>
+									</div>
+									<div>
+										<p className="font-semibold text-[9px] text-fg">
+											Teracom (Jun 2021 – Apr 2022)
+										</p>
+										<p className="text-[8px] text-muted-fg opacity-70">
+											Frontend Engineer · Enterprise Systems
 										</p>
 									</div>
 								</div>
@@ -351,7 +366,7 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 				{/* Education - Auto Slide */}
 				<div
 					ref={educationRef}
-					className="group relative col-span-2 row-span-1 cursor-pointer overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-3 backdrop-blur-md transition-all duration-300 hover:border-primary/50 md:col-span-2 md:row-span-1"
+					className="group relative col-span-2 row-span-2 cursor-pointer overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-3 backdrop-blur-md transition-all duration-300 hover:border-primary/50 md:col-span-2 md:row-span-1"
 				>
 					<div className="relative h-full w-full overflow-hidden">
 						<div className="slide-content flex h-[200%] flex-col">
@@ -382,10 +397,10 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 										Academy of Cryptography Techniques
 									</p>
 									<p className="text-[8px] text-muted-fg opacity-70">
-										Bachelor · Software Engineering
+										Software Engineering
 									</p>
 									<p className="text-[8px] text-muted-fg opacity-70">
-										2017-2022 · Hanoi, Vietnam
+										2017 – 2022
 									</p>
 								</div>
 							</div>
@@ -404,10 +419,10 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 						</div>
 						<div className="space-y-0.5">
 							<p className="font-semibold text-[10px] text-fg leading-tight">
-								AI & Automation
+								AI-Assisted Development
 							</p>
 							<p className="text-[8px] text-muted-fg leading-tight opacity-70">
-								AI workflows · Developer tooling
+								Claude Code · AI workflows
 							</p>
 						</div>
 					</div>
@@ -423,11 +438,11 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 							{/* Front View */}
 							<div className="flex h-1/2 shrink-0 flex-col justify-between">
 								<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-									Projects
+									Notable Projects
 								</h3>
 								<div className="space-y-0.5">
 									<p className="font-semibold text-[10px] text-fg leading-tight">
-										Analytics · UI Libraries
+										200+ Web3 Projects
 									</p>
 									<p className="text-[8px] text-muted-fg leading-tight opacity-70">
 										Auto-cycling...
@@ -437,16 +452,16 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 							{/* Details View */}
 							<div className="flex h-1/2 shrink-0 flex-col justify-between">
 								<h3 className="font-bold text-[9px] text-primary uppercase tracking-wide">
-									Recent Projects
+									Project Highlights
 								</h3>
 								<div className="space-y-0.5">
 									<p className="text-[8px] text-fg">
-										• Token analytics (Solana)
+										• RunTogether: 7,413 assets sold in 30 min
 									</p>
 									<p className="text-[8px] text-fg">
-										• Component libraries + Storybook
+										• Trading platforms with real-time updates
 									</p>
-									<p className="text-[8px] text-fg">• AI workflow research</p>
+									<p className="text-[8px] text-fg">• 3D DApps with Three.js</p>
 								</div>
 							</div>
 						</div>
@@ -474,11 +489,16 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 									<div className="flex flex-wrap gap-1">
 										{[
 											"React",
-											"Next.js",
 											"TypeScript",
-											"TanStack",
+											"Next.js",
+											"Remix",
+											"Vite",
 											"TailwindCSS",
-											"shadcn/ui",
+											"Shadcn/UI",
+											"TanStack",
+											"Redux",
+											"Zustand",
+											"Valtio",
 										].map((tech) => (
 											<span
 												key={tech}
@@ -493,16 +513,16 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 								{/* Divider */}
 								<div className="hidden h-12 w-px bg-border/50 md:block" />
 
-								{/* Backend */}
+								{/* State Management */}
 								<div className="flex flex-1 flex-col gap-2">
 									<div className="flex items-center gap-1.5">
 										<Code2 className="h-2.5 w-2.5 text-primary" />
 										<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-											Backend
+											State & Backend
 										</h3>
 									</div>
 									<div className="flex flex-wrap gap-1">
-										{["Node.js", "NestJS", "Hono", "MongoDB", "Postgres"].map(
+										{["NestJS", "Hono", "Redux", "Zustand", "Valtio"].map(
 											(tech) => (
 												<span
 													key={tech}
@@ -524,21 +544,23 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 									<div>
 										<p className="mb-1 font-semibold text-fg">Frontend</p>
 										<p className="text-muted-fg opacity-70">
-											React · Next.js · TypeScript · TanStack Router · React
-											Query · TailwindCSS · shadcn/ui
+											React · TypeScript · Next.js · Remix · Vite · TailwindCSS
+											· Shadcn/UI · TanStack
 										</p>
 									</div>
 									<div>
-										<p className="mb-1 font-semibold text-fg">Backend</p>
+										<p className="mb-1 font-semibold text-fg">
+											State & Backend
+										</p>
 										<p className="text-muted-fg opacity-70">
-											Node.js · NestJS · Hono · Express · REST · GraphQL
+											Redux · Zustand · Valtio · NestJS · Hono
 										</p>
 									</div>
 									<div>
-										<p className="mb-1 font-semibold text-fg">Data & Tools</p>
+										<p className="mb-1 font-semibold text-fg">Specialties</p>
 										<p className="text-muted-fg opacity-70">
-											MongoDB · Postgres · Redis · Docker · Git · VS Code ·
-											Polars · PyTorch
+											Real-time UI · Design Systems · Performance Optimization ·
+											Claude Code
 										</p>
 									</div>
 								</div>
@@ -565,7 +587,9 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 								</p>
 								<p className="text-[9px] text-fg">
 									<span className="font-semibold">English</span>{" "}
-									<span className="text-muted-fg opacity-60">· Basic</span>
+									<span className="text-muted-fg opacity-60">
+										· Professional
+									</span>
 								</p>
 							</div>
 						</div>
@@ -576,7 +600,7 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 								Interests
 							</h3>
 							<p className="text-[9px] text-muted-fg leading-tight opacity-70">
-								Music Production · AI · Creative Tech
+								Creative Development · Design Systems · Performance
 							</p>
 						</div>
 					</div>

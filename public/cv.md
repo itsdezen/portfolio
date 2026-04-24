@@ -52,7 +52,7 @@ Claude Code (AI agent-assisted development)
 
 ### **EnhancedLab** — *Frontend Lead*
 
-*Feb 2024 – Nov 2024*
+*Feb 2025 – Nov 2025*
 
 **Project: TheVapeLabs**
 
