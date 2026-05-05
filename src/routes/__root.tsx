@@ -4,10 +4,7 @@ import {
 	Outlet,
 	Scripts,
 } from "@tanstack/react-router"
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
 import { AnimatedBackground } from "~/shared/components/animated-background"
-import { ThemeProvider } from "~/shared/providers/theme-provider"
 import appCss from "../styles.css?url"
 
 export const Route = createRootRoute({
@@ -82,8 +79,8 @@ export const Route = createRootRoute({
 				{ name: "twitter:creator", content: "@onepercman" },
 
 				// Additional SEO
-				{ name: "theme-color", content: "#ef4444" },
-				{ name: "msapplication-TileColor", content: "#ef4444" },
+				{ name: "theme-color", content: "#f4c430" },
+				{ name: "msapplication-TileColor", content: "#f4c430" },
 				{ name: "apple-mobile-web-app-capable", content: "yes" },
 				{ name: "apple-mobile-web-app-status-bar-style", content: "default" },
 				{ name: "apple-mobile-web-app-title", content: "onepercman" },
@@ -203,42 +200,15 @@ export const Route = createRootRoute({
 
 function RootDocument() {
 	return (
-		<html lang="en">
+		<html lang="en" className="dark">
 			<head>
 				<HeadContent />
 			</head>
 			<body>
-				<ThemeProvider>
-					<RootContent />
-				</ThemeProvider>
+				<AnimatedBackground variant="dark" />
+				<Outlet />
 				<Scripts />
 			</body>
 		</html>
-	)
-}
-
-function RootContent() {
-	const { theme } = useTheme()
-	const [mounted, setMounted] = useState(false)
-
-	// Only render after mount to avoid hydration mismatch
-	useEffect(() => {
-		setMounted(true)
-	}, [])
-
-	if (!mounted) {
-		return (
-			<>
-				<AnimatedBackground variant="dark" />
-				<Outlet />
-			</>
-		)
-	}
-
-	return (
-		<>
-			<AnimatedBackground variant={(theme as "light" | "dark") || "dark"} />
-			<Outlet />
-		</>
 	)
 }

@@ -113,7 +113,7 @@ export function Navigation({
 										: "-rotate-180 scale-0 opacity-0",
 								)}
 							>
-								<Sun className="h-5 w-5 text-amber-500" />
+								<Sun className="h-5 w-5 text-primary" />
 							</div>
 						</button>
 					</div>
@@ -189,7 +189,7 @@ export function Navigation({
 										: "-rotate-180 scale-0 opacity-0",
 								)}
 							>
-								<Sun className="h-5 w-5 text-amber-500" />
+								<Sun className="h-5 w-5 text-primary" />
 							</div>
 						</button>
 					</div>

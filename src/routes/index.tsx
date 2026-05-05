@@ -1,19 +1,22 @@
 "use client"
 
 import { createFileRoute } from "@tanstack/react-router"
-import { useTheme } from "next-themes"
 import {
-	AboutSection,
+	AboutSectionNew,
 	aboutData,
+	ContactSectionNew,
 	contactData,
-	Footer,
+	ExperienceSection,
+	experiences,
+	FooterNew,
 	HeroSection,
-	heroData,
-	Navigation,
-	OtherSection,
-	otherItems,
-	ProjectsSection,
+	NavigationNew,
+	OSSSection,
+	ossPackages,
+	ProjectsSectionNew,
 	projects,
+	SkillsSection,
+	skillCategories,
 } from "~/modules/portfolio"
 
 export const Route = createFileRoute("/")({
@@ -21,32 +24,19 @@ export const Route = createFileRoute("/")({
 })
 
 function RouteComponent() {
-	const { theme, setTheme } = useTheme()
-
-	const toggleTheme = () => {
-		setTheme(theme === "dark" ? "light" : "dark")
-	}
-
 	return (
 		<>
-			<Navigation
-				theme={(theme as "light" | "dark") || "dark"}
-				onThemeToggle={toggleTheme}
-			/>
+			<NavigationNew />
 			<main>
-				<HeroSection
-					name={heroData.name}
-					nickname={heroData.nickname}
-					headline={heroData.headline}
-					tagline={heroData.tagline}
-					location={heroData.location}
-					experience={heroData.experience}
-				/>
-				<AboutSection about={aboutData} contact={contactData} />
-				<ProjectsSection projects={projects} />
-				<OtherSection items={otherItems} />
+				<HeroSection />
+				<AboutSectionNew about={aboutData} />
+				<ProjectsSectionNew projects={projects} />
+				<OSSSection packages={ossPackages} />
+				<SkillsSection categories={skillCategories} />
+				<ExperienceSection experiences={experiences} />
+				<ContactSectionNew contact={contactData} />
 			</main>
-			<Footer />
+			<FooterNew />
 		</>
 	)
 }

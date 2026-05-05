@@ -44,7 +44,7 @@ export function AnimatedBackground({
 				)}
 				style={{
 					background:
-						"radial-gradient(circle at 0% 0%, rgba(239, 68, 68, 0.15), transparent 50%), radial-gradient(circle at 100% 0%, rgba(156, 163, 175, 0.15), transparent 50%), radial-gradient(circle at 20% 80%, rgba(220, 38, 38, 0.15), transparent 50%)",
+						"radial-gradient(circle at 0% 0%, oklch(0.68 0.20 85 / 0.15), transparent 50%), radial-gradient(circle at 100% 0%, oklch(0.72 0.18 85 / 0.12), transparent 50%), radial-gradient(circle at 20% 80%, oklch(0.75 0.16 85 / 0.15), transparent 50%)",
 				}}
 			/>
 
@@ -56,7 +56,7 @@ export function AnimatedBackground({
 				)}
 				style={{
 					background:
-						"radial-gradient(circle at 0% 0%, oklch(0.55 0.22 25 / 0.3), oklch(0.15 0.02 0 / 0.2) 40%, transparent 60%), radial-gradient(circle at 100% 0%, oklch(0.2 0.05 0 / 0.2), transparent 50%), radial-gradient(circle at 50% 100%, oklch(0.55 0.22 25 / 0.25), oklch(0.15 0.02 0 / 0.15) 40%, transparent 60%)",
+						"radial-gradient(circle at 0% 0%, oklch(0.68 0.20 85 / 0.3), oklch(0.15 0.02 0 / 0.2) 40%, transparent 60%), radial-gradient(circle at 100% 0%, oklch(0.2 0.05 0 / 0.2), transparent 50%), radial-gradient(circle at 50% 100%, oklch(0.68 0.20 85 / 0.25), oklch(0.15 0.02 0 / 0.15) 40%, transparent 60%)",
 				}}
 			/>
 
@@ -76,7 +76,7 @@ export function AnimatedBackground({
 				className="absolute inset-0 transition-opacity duration-500"
 				style={{
 					background:
-						"radial-gradient(circle, oklch(0.55 0.22 25 / 0.2), transparent 50%)",
+						"radial-gradient(circle, oklch(0.68 0.20 85 / 0.2), transparent 50%)",
 					maskImage: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), black, transparent)`,
 					WebkitMaskImage: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), black, transparent)`,
 				}}

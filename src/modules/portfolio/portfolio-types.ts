@@ -32,6 +32,10 @@ export interface AboutInfo {
 		description: string
 		position: { x: number; y: number }
 	}[]
+	stats?: {
+		number: string
+		label: string
+	}[]
 }
 
 export interface ContactInfo {
@@ -54,4 +58,19 @@ export interface OtherItem {
 	gradientTo: string
 	isExternal?: boolean
 	badge?: string
+}
+
+export interface SkillCategory {
+	title: string
+	skills: SkillItem[]
+}
+
+export interface SkillItem {
+	name: string
+	level?: "accent" | "highlight" | "normal"
+}
+
+export interface OSSPackage {
+	name: string
+	description: string
 }
