@@ -72,12 +72,12 @@ export function HeroSection() {
 			tl.to(
 				contentRef.current,
 				{
-					rotateX: -30, // Rotate to -30deg
-					rotateY: 20, // Diamond angle
-					rotateZ: 2, // Slight twist
+					rotateX: 10, // Rotate to -30deg
+					rotateY: 75, // Diamond angle
+					rotateZ: 0, // Slight twist
 					scale: 1.2,
-					z: 100,
-					y: 50, // Slide DOWN
+					z: 0,
+					y: 0, // Slide DOWN
 					ease: "power1.inOut",
 				},
 				0,
@@ -87,13 +87,14 @@ export function HeroSection() {
 					contentRef.current,
 					{
 						// KEEP same rotation as phase 1 (no change)
-						rotateX: -30, // Stay at -30deg
-						rotateY: 20, // Stay at 20deg
-						rotateZ: 2, // Stay at 2deg
+						rotateX: 10, // Stay at 10deg
+						rotateY: 75, // Stay at 75deg
+						rotateZ: 0, // Stay at 0deg
 						// Only change scale and position
-						scale: 2.2, // Zoom in larger
-						z: 300,
-						y: 250, // Slide DOWN more
+						scale: 1.1, // Zoom in larger
+						x: -100,
+						z: 0,
+						y: -100, // Slide DOWN more
 						opacity: 0.1,
 						ease: "power2.inOut",
 					},
