@@ -1,10 +1,17 @@
 "use client"
 
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useEffect, useRef, useState } from "react"
 import { cn } from "~/shared/utils"
 import { portfolioData } from "../portfolio-data"
 
+gsap.registerPlugin(ScrollTrigger, useGSAP)
+
 export function HeroSection() {
+	const sectionRef = useRef<HTMLElement>(null)
+	const contentRef = useRef<HTMLDivElement>(null)
 	const glowTopRef = useRef<HTMLDivElement>(null)
 	const [mounted, setMounted] = useState({
 		badge: false,
@@ -45,10 +52,63 @@ export function HeroSection() {
 		return () => timers.forEach(clearTimeout)
 	}, [])
 
+	// GSAP 3D Transform: Pin until 30deg, then allow scroll while continuing animation
+	useGSAP(
+		() => {
+			if (!sectionRef.current || !contentRef.current) return
+
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: sectionRef.current,
+					start: "top top",
+					end: "+=200%", // Total scroll distance (100vh pin + 100vh continue)
+					scrub: 1,
+					pin: true,
+					pinSpacing: true,
+				},
+			})
+
+			// Phase 1: Transform to 30deg (first 50% of scroll)
+			tl.to(
+				contentRef.current,
+				{
+					rotateX: -30, // Rotate to -30deg
+					rotateY: 20, // Diamond angle
+					rotateZ: 2, // Slight twist
+					scale: 1.2,
+					z: 100,
+					y: 50, // Slide DOWN
+					ease: "power1.inOut",
+				},
+				0,
+			)
+				// Phase 2: KEEP 30deg rotation, only zoom + slide (no more rotation)
+				.to(
+					contentRef.current,
+					{
+						// KEEP same rotation as phase 1 (no change)
+						rotateX: -30, // Stay at -30deg
+						rotateY: 20, // Stay at 20deg
+						rotateZ: 2, // Stay at 2deg
+						// Only change scale and position
+						scale: 2.2, // Zoom in larger
+						z: 300,
+						y: 250, // Slide DOWN more
+						opacity: 0.1,
+						ease: "power2.inOut",
+					},
+					">",
+				)
+		},
+		{ scope: sectionRef },
+	)
+
 	return (
 		<section
+			ref={sectionRef}
 			id="home"
 			className="relative min-h-screen w-full overflow-hidden bg-bg"
+			style={{ perspective: "1500px" }}
 		>
 			{/* Noise texture overlay */}
 			<div
@@ -107,7 +167,11 @@ export function HeroSection() {
 			</div>
 
 			{/* Main content */}
-			<div className="relative z-[5] grid h-full min-h-screen grid-cols-1 gap-6 px-10 pt-[112px] pb-[60px] lg:grid-cols-[1fr_340px] lg:px-[72px]">
+			<div
+				ref={contentRef}
+				className="relative z-[5] grid h-full min-h-screen grid-cols-1 gap-6 px-10 pt-[112px] pb-[60px] lg:grid-cols-[1fr_340px] lg:px-[72px]"
+				style={{ transformStyle: "preserve-3d" }}
+			>
 				{/* Left section */}
 				<div className="flex flex-col justify-between">
 					<div>
