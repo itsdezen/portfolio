@@ -33,7 +33,6 @@ export const portfolioData = {
 	stats: [
 		{ value: "4", suffix: "+", label: "Years prod" },
 		{ value: "200", suffix: "+", label: "Web3 products" },
-		{ value: "7.4", suffix: "K", label: "NFTs · 30 min" },
 	],
 	coreStack: [
 		[
