@@ -44,12 +44,12 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
 				</h2>
 
 				{/* Timeline */}
-				<div className="relative pl-60">
+				<div className="relative md:pl-60">
 					{/* Vertical line */}
-					<div className="absolute top-2 bottom-0 left-[240.5px] w-px bg-border" />
+					<div className="absolute top-2 bottom-0 left-[240.5px] hidden w-px bg-fg/60 md:block" />
 
 					{/* Entries */}
-					<div className="space-y-18">
+					<div className="space-y-12 md:space-y-18">
 						{experiences.map((exp) => (
 							<TimelineEntry key={exp.id} experience={exp} />
 						))}
@@ -59,7 +59,7 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
 							experience={{
 								id: "edu",
 								company: "Academy of Cryptography Techniques · Hanoi",
-								role: "B.Sc. Software Engineering",
+								role: "Software Engineer",
 								period: "2017 — 2022",
 								description:
 									"Studied software engineering and cryptographic protocols. Built early interest in systems programming and security-sensitive applications.",
@@ -83,7 +83,7 @@ function CVDownloadCTA() {
 		<div
 			ref={reveal.ref}
 			className={cn(
-				"mt-20 pl-12 transition-all duration-700",
+				"mt-20 transition-all duration-700 md:pl-12",
 				reveal.isVisible
 					? "translate-y-0 opacity-100"
 					: "translate-y-7 opacity-0",
@@ -132,7 +132,7 @@ function TimelineEntry({
 		<div
 			ref={reveal.ref}
 			className={cn(
-				"relative pl-12 transition-all duration-700",
+				"relative transition-all duration-700 md:pl-12",
 				reveal.isVisible
 					? "translate-y-0 opacity-100"
 					: "translate-y-7 opacity-0",
@@ -141,13 +141,13 @@ function TimelineEntry({
 			{/* Dot */}
 			<div
 				className={cn(
-					"absolute top-1.5 -left-1 h-2.5 w-2.5 rounded-full border-[2.5px] border-gray",
-					isEducation ? "bg-muted-fg" : "bg-accent",
+					"absolute top-1.5 -left-1 hidden h-2.5 w-2.5 rounded-full border-[2.5px] border-gray md:block",
+					isEducation ? "bg-muted-fg" : "bg-fg/50",
 				)}
 			/>
 
 			{/* Date */}
-			<div className="absolute top-0.5 right-full w-40 pr-8 text-right font-mono text-[11px] text-muted-fg tracking-[0.02em]">
+			<div className="mb-2 font-mono text-[11px] text-muted-fg tracking-[0.02em] md:absolute md:top-0.5 md:right-full md:mb-0 md:w-40 md:pr-8 md:text-right">
 				{experience.period}
 			</div>
 

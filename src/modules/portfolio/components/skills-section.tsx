@@ -44,7 +44,7 @@ export function SkillsSection({ categories }: SkillsSectionProps) {
 				<div
 					ref={table.ref}
 					className={cn(
-						"grid gap-0 overflow-hidden rounded-[14px] border border-white/[0.08] transition-all duration-700 md:grid-cols-3 lg:grid-cols-5",
+						"grid grid-cols-2 gap-0 overflow-hidden rounded-[14px] border border-white/[0.08] transition-all duration-700 md:grid-cols-3 lg:grid-cols-5",
 						table.isVisible
 							? "translate-y-0 opacity-100"
 							: "translate-y-7 opacity-0",
@@ -55,14 +55,17 @@ export function SkillsSection({ categories }: SkillsSectionProps) {
 						<div
 							key={category.title}
 							className={cn(
-								"border-white/[0.08] p-9",
-								// Right border for all except last column
-								"md:border-r lg:border-r",
-								idx === 2 && "md:border-r-0",
+								"border-white/[0.08] p-6 md:p-9",
+								// Right border
+								"border-r md:border-r lg:border-r",
+								idx % 2 === 1 && "border-r-0 md:border-r",
+								idx === 2 && "md:border-r-0 lg:border-r",
 								idx === 4 && "lg:border-r-0",
-								// Bottom border for rows on mobile/tablet
-								"md:border-b lg:border-b-0",
-								idx >= 3 && "md:border-b-0",
+								// Bottom border
+								"border-b",
+								idx >= categories.length - 2 && "border-b-0",
+								idx >= 3 && "md:border-b-0 lg:border-b",
+								idx >= categories.length - 2 && "lg:border-b-0",
 							)}
 						>
 							<div className="mb-5 border-white/[0.07] border-b pb-4 font-mono text-[10px] text-white/30 uppercase tracking-[0.09em]">
