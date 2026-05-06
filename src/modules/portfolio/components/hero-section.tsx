@@ -12,66 +12,44 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 export function HeroSection() {
 	const sectionRef = useRef<HTMLElement>(null)
 	const contentRef = useRef<HTMLDivElement>(null)
-	const glowTopRef = useRef<HTMLDivElement>(null)
-	const [mounted, setMounted] = useState({
-		badge: false,
-		divider: false,
-		name: false,
-		title: false,
-		stats: false,
-		stack: false,
-		url: false,
-	})
+	const [mounted, setMounted] = useState(false)
 
+	// Single state update instead of 7 - prevents multiple re-renders
 	useEffect(() => {
-		const handleMouseMove = (e: MouseEvent) => {
-			const { clientX, clientY } = e
-			if (glowTopRef.current) {
-				const rect = glowTopRef.current.getBoundingClientRect()
-				const x = clientX - rect.left
-				const y = clientY - rect.top
-				glowTopRef.current.style.background = `radial-gradient(ellipse 800px 600px at ${x}px ${y}px, oklch(0.68 0.20 85 / 0.09) 0%, transparent 65%)`
-			}
-		}
-
-		window.addEventListener("mousemove", handleMouseMove)
-		return () => window.removeEventListener("mousemove", handleMouseMove)
+		const timer = setTimeout(() => setMounted(true), 100)
+		return () => clearTimeout(timer)
 	}, [])
 
-	useEffect(() => {
-		const timers = [
-			setTimeout(() => setMounted((m) => ({ ...m, badge: true })), 100),
-			setTimeout(() => setMounted((m) => ({ ...m, divider: true })), 250),
-			setTimeout(() => setMounted((m) => ({ ...m, name: true })), 400),
-			setTimeout(() => setMounted((m) => ({ ...m, title: true })), 550),
-			setTimeout(() => setMounted((m) => ({ ...m, stats: true })), 700),
-			setTimeout(() => setMounted((m) => ({ ...m, stack: true })), 850),
-			setTimeout(() => setMounted((m) => ({ ...m, url: true })), 1000),
-		]
-
-		return () => timers.forEach(clearTimeout)
-	}, [])
-
-	// 3D scroll animation with pin + fade out
+	// 3D scroll animation with pin + fade + darken - OPTIMIZED for 60fps
 	useGSAP(
 		() => {
 			if (!sectionRef.current || !contentRef.current) return
+
+			// Force GPU acceleration on elements
+			gsap.set(contentRef.current, {
+				force3D: true,
+				willChange: "transform, opacity",
+			})
+			gsap.set(sectionRef.current, {
+				force3D: true,
+				willChange: "opacity",
+			})
 
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: sectionRef.current,
 					start: "top top",
-					end: "+=200%",
-					scrub: true,
+					end: "+=150%",
+					scrub: 1, // Smooth scrub with 1s delay
 					pin: true,
-					pinSpacing: false, // No spacing - let about section overlap
+					pinSpacing: false,
 					anticipatePin: 1,
 					invalidateOnRefresh: true,
 					// markers: true,
 				},
 			})
 
-			// Animate content rotation + fade out simultaneously
+			// Animate content rotation + fade
 			tl.fromTo(
 				contentRef.current,
 				{
@@ -82,6 +60,7 @@ export function HeroSection() {
 					x: 0,
 					y: 0,
 					z: 0,
+					opacity: 1,
 				},
 				{
 					rotateX: 45,
@@ -91,21 +70,22 @@ export function HeroSection() {
 					x: "30%",
 					y: "-30%",
 					z: 0,
+					opacity: 0,
 					ease: "none",
 				},
 				0,
-			).fromTo(
+			)
+			// Darken section with overlay (smooth fade to black)
+			tl.fromTo(
 				sectionRef.current,
 				{
-					opacity: 1,
-					filter: "blur(0px) brightness(1)",
+					"--darken-opacity": 0,
 				},
 				{
-					opacity: 0,
-					filter: "blur(10px) brightness(0.5)",
+					"--darken-opacity": 1,
 					ease: "none",
 				},
-				0, // Start at the same time (position 0)
+				0,
 			)
 		},
 		{ scope: sectionRef },
@@ -116,8 +96,16 @@ export function HeroSection() {
 			ref={sectionRef}
 			id="home"
 			className="relative min-h-screen w-full overflow-hidden bg-bg"
-			style={{ perspective: "1500px" }}
+			style={
+				{ perspective: "1500px", "--darken-opacity": 0 } as React.CSSProperties
+			}
 		>
+			{/* Dark overlay - fades in on scroll */}
+			<div
+				className="pointer-events-none absolute inset-0 z-20 bg-black"
+				style={{ opacity: "var(--darken-opacity, 0)" }}
+			/>
+
 			{/* Noise texture overlay */}
 			<div
 				className="pointer-events-none absolute inset-0 z-10 opacity-50"
@@ -126,29 +114,28 @@ export function HeroSection() {
 				}}
 			/>
 
-			{/* Glow effects */}
+			{/* Glow effects - Static only, reduced opacity */}
 			<div
-				ref={glowTopRef}
 				className="pointer-events-none absolute -top-[200px] -right-[100px] h-[600px] w-[800px]"
 				style={{
 					background:
-						"radial-gradient(ellipse at center, oklch(0.68 0.20 85 / 0.09) 0%, transparent 65%)",
+						"radial-gradient(ellipse at center, oklch(0.68 0.20 85 / 0.04) 0%, transparent 65%)",
 				}}
 			/>
 			<div
 				className="pointer-events-none absolute -bottom-[120px] left-[40px] h-[400px] w-[500px]"
 				style={{
 					background:
-						"radial-gradient(ellipse at center, oklch(0.68 0.20 85 / 0.05) 0%, transparent 70%)",
+						"radial-gradient(ellipse at center, oklch(0.68 0.20 85 / 0.02) 0%, transparent 70%)",
 				}}
 			/>
 
-			{/* Grid background */}
+			{/* Grid background - reduced opacity */}
 			<div
 				className="pointer-events-none absolute inset-0"
 				style={{
 					backgroundImage:
-						"linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)",
+						"linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px)",
 					backgroundSize: "60px 60px",
 					maskImage:
 						"radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%)",
@@ -157,18 +144,18 @@ export function HeroSection() {
 				}}
 			/>
 
-			{/* Border frame */}
-			<div className="pointer-events-none absolute inset-6 top-[52px] rounded-2xl border border-white/6" />
+			{/* Border frame - reduced opacity */}
+			<div className="pointer-events-none absolute inset-6 top-[52px] rounded-2xl border border-white/3" />
 
-			{/* Corner accents */}
-			<div className="pointer-events-none absolute top-[76px] left-10 z-20 h-4 w-4 border-white/15 border-t-[1.5px] border-l-[1.5px] lg:left-12" />
-			<div className="pointer-events-none absolute top-[76px] right-10 z-20 h-4 w-4 border-white/15 border-t-[1.5px] border-r-[1.5px] lg:right-12" />
-			<div className="pointer-events-none absolute bottom-10 left-10 z-20 h-4 w-4 border-white/15 border-b-[1.5px] border-l-[1.5px] lg:bottom-12 lg:left-12" />
-			<div className="pointer-events-none absolute right-10 bottom-10 z-20 h-4 w-4 border-white/15 border-r-[1.5px] border-b-[1.5px] lg:right-12 lg:bottom-12" />
+			{/* Corner accents - reduced opacity */}
+			<div className="pointer-events-none absolute top-[76px] left-10 z-20 h-4 w-4 border-white/8 border-t-[1.5px] border-l-[1.5px] lg:left-12" />
+			<div className="pointer-events-none absolute top-[76px] right-10 z-20 h-4 w-4 border-white/8 border-t-[1.5px] border-r-[1.5px] lg:right-12" />
+			<div className="pointer-events-none absolute bottom-10 left-10 z-20 h-4 w-4 border-white/8 border-b-[1.5px] border-l-[1.5px] lg:bottom-12 lg:left-12" />
+			<div className="pointer-events-none absolute right-10 bottom-10 z-20 h-4 w-4 border-white/8 border-r-[1.5px] border-b-[1.5px] lg:right-12 lg:bottom-12" />
 
-			{/* Large monogram background */}
+			{/* Large monogram background - reduced opacity */}
 			<div
-				className="pointer-events-none absolute right-[72px] bottom-[60px] z-[1] select-none font-bold font-sans text-[200px] text-white/[0.02] leading-none tracking-[-0.06em]"
+				className="pointer-events-none absolute right-[72px] bottom-[60px] z-[1] select-none font-bold font-sans text-[200px] text-white/1 tracking-[-0.06em]"
 				aria-hidden="true"
 			>
 				{portfolioData.name.charAt(0)}
@@ -187,17 +174,18 @@ export function HeroSection() {
 						<div
 							className={cn(
 								"mb-10 flex flex-wrap items-center gap-2.5 transition-all duration-700",
-								mounted.badge
+								mounted
 									? "translate-y-0 opacity-100"
 									: "translate-y-4 opacity-0",
 							)}
+							style={{ transitionDelay: "100ms" }}
 						>
 							<div className="h-[7px] w-[7px] flex-shrink-0 animate-pulse rounded-full bg-[#30d158]" />
-							<span className="font-mono text-white/35 text-xs tracking-[0.04em]">
+							<span className="font-mono text-white/25 text-xs tracking-[0.04em]">
 								{portfolioData.availability.status}
 							</span>
-							<span className="font-mono text-white/15 text-xs">·</span>
-							<span className="font-mono text-white/35 text-xs tracking-[0.04em]">
+							<span className="font-mono text-white/10 text-xs">·</span>
+							<span className="font-mono text-white/25 text-xs tracking-[0.04em]">
 								{portfolioData.location} · {portfolioData.timezone}
 							</span>
 						</div>
@@ -205,35 +193,45 @@ export function HeroSection() {
 						{/* Gold divider */}
 						<div
 							className={cn(
-								"mb-8 h-[2px] w-12 rounded-sm bg-primary transition-all duration-700",
-								mounted.divider ? "w-12 opacity-100" : "w-0 opacity-0",
+								"mb-8 h-[2px] rounded-sm bg-primary transition-all duration-700",
+								mounted ? "w-12 opacity-100" : "w-0 opacity-0",
 							)}
+							style={{ transitionDelay: "250ms" }}
 						/>
 
 						{/* Name */}
-						<h1
+						<div
 							className={cn(
-								"mb-6 font-sans font-semibold text-5xl text-white transition-all duration-700 md:text-6xl lg:text-[80px]",
-								mounted.name
+								"mb-4 max-w-fit transition-all duration-700",
+								mounted
 									? "translate-y-0 opacity-100"
 									: "translate-y-4 opacity-0",
 							)}
+							style={{ transitionDelay: "400ms" }}
 						>
-							{portfolioData.name.split(" ")[0]}
-							<br />
-							<em className="font-semibold text-primary not-italic">
-								{portfolioData.name.split(" ").slice(1).join(" ")}.
-							</em>
-						</h1>
+							<h1 className="max-w-fit font-sans font-semibold text-5xl text-white md:text-6xl lg:text-[80px]">
+								{portfolioData.name.split(" ")[0]}
+								<br />
+								<em className="font-semibold text-primary not-italic">
+									{portfolioData.name.split(" ").slice(1).join(" ")}.
+								</em>
+							</h1>
+							<div className="mt-4 text-right">
+								<span className="font-mono text-base text-white/35">
+									aka {portfolioData.website.domain}
+								</span>
+							</div>
+						</div>
 
 						{/* Title */}
 						<p
 							className={cn(
-								"mb-6 max-w-[460px] font-sans text-white/42 text-xl leading-[1.4] tracking-[-0.015em] transition-all duration-700 md:text-[22px]",
-								mounted.title
+								"mb-6 max-w-[460px] font-sans text-white/35 text-xl leading-[1.4] tracking-[-0.015em] transition-all duration-700 md:text-[22px]",
+								mounted
 									? "translate-y-0 opacity-100"
 									: "translate-y-4 opacity-0",
 							)}
+							style={{ transitionDelay: "550ms" }}
 						>
 							{portfolioData.title}
 							<br />
@@ -245,10 +243,9 @@ export function HeroSection() {
 					<div
 						className={cn(
 							"flex overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.02] transition-all duration-700",
-							mounted.stats
-								? "translate-y-0 opacity-100"
-								: "translate-y-4 opacity-0",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
 						)}
+						style={{ transitionDelay: "700ms" }}
 					>
 						{portfolioData.stats.map((stat, index) => (
 							<div
@@ -278,13 +275,12 @@ export function HeroSection() {
 					<div
 						className={cn(
 							"transition-all duration-700",
-							mounted.stack
-								? "translate-y-0 opacity-100"
-								: "translate-y-4 opacity-0",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
 						)}
+						style={{ transitionDelay: "850ms" }}
 					>
 						{/* Stack label */}
-						<div className="mb-4 font-mono text-[10px] text-white/22 uppercase tracking-[0.09em]">
+						<div className="mb-4 font-mono text-[10px] text-white/15 uppercase tracking-[0.09em]">
 							Core Stack
 						</div>
 
@@ -294,13 +290,13 @@ export function HeroSection() {
 								<span
 									key={techIndex}
 									className={cn(
-										"rounded-md border border-white/9 bg-white/[0.03] px-3 py-1.25 font-mono text-white/55 text-xs tracking-[0.01em]",
+										"rounded-md border border-white/6 bg-white/2 px-3 py-1.25 font-mono text-white/45 text-xs tracking-[0.01em]",
 										"highlight" in tech &&
 											tech.highlight === "gold" &&
-											"border-primary/25 bg-primary/6 text-primary",
+											"border-primary/20 bg-primary/5 text-primary",
 										"highlight" in tech &&
 											tech.highlight === "hi" &&
-											"border-white/15 bg-white/5 text-white/85",
+											"border-white/12 bg-white/4 text-white/75",
 									)}
 								>
 									{tech.name}
@@ -313,10 +309,9 @@ export function HeroSection() {
 					<div
 						className={cn(
 							"flex items-center gap-2.5 rounded-[10px] border border-primary/20 bg-primary/[0.05] px-[18px] py-[14px] transition-all duration-700",
-							mounted.url
-								? "translate-y-0 opacity-100"
-								: "translate-y-4 opacity-0",
+							mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
 						)}
+						style={{ transitionDelay: "1000ms" }}
 					>
 						<div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary">
 							<svg

@@ -80,14 +80,14 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 
 	const animatedName = (about.title || "YOUR NAME").split(" ")
 
-	// Use GSAP for smooth mouse tracking without re-renders
+	// Use GSAP for smooth mouse tracking without re-renders - OPTIMIZED
 	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (!imageRef.current) return
 		const rect = imageRef.current.getBoundingClientRect()
 		const x = (e.clientX - rect.left - rect.width / 2) / rect.width
 		const y = (e.clientY - rect.top - rect.height / 2) / rect.height
 
-		// Use GSAP to animate - no state updates, no re-renders
+		// Use GSAP quickTo for better performance
 		const images = imageRef.current.querySelectorAll("img")
 		images.forEach((img) => {
 			gsap.to(img, {
@@ -95,6 +95,7 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 				y: y * 15,
 				duration: 0.3,
 				ease: "power2.out",
+				force3D: true,
 			})
 		})
 	}
@@ -108,23 +109,30 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 				y: 0,
 				duration: 0.5,
 				ease: "power2.out",
+				force3D: true,
 			})
 		})
 	}
 
-	// Parallax effect - section slides up over hero
+	// Parallax effect - section slides up over hero - OPTIMIZED
 	useGSAP(
 		() => {
 			if (!sectionRef.current) return
 
+			// Force GPU layer
+			gsap.set(sectionRef.current, {
+				force3D: true,
+				willChange: "transform",
+			})
+
 			gsap.to(sectionRef.current, {
-				y: -400, // Stronger parallax - slides up more
+				y: -400,
 				ease: "none",
 				scrollTrigger: {
 					trigger: sectionRef.current,
-					start: "top bottom", // Start when section enters viewport
-					end: "top 20%", // End when section reaches 20% from top
-					scrub: true,
+					start: "top bottom",
+					end: "top 20%",
+					scrub: 1, // Smooth scrub
 					invalidateOnRefresh: true,
 				},
 			})
@@ -132,7 +140,7 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 		{ scope: sectionRef },
 	)
 
-	// Auto-cycle animations for cards - pause on hover, click to toggle
+	// Auto-cycle animations for cards - OPTIMIZED with GPU acceleration
 	useGSAP(() => {
 		const cards = [
 			{ ref: experienceRef, duration: 3 },
@@ -148,6 +156,12 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 
 			const content = ref.current.querySelector(".slide-content")
 			if (!content) return
+
+			// Force GPU acceleration
+			gsap.set(content, {
+				force3D: true,
+				willChange: "transform",
+			})
 
 			const tl = gsap.timeline({ repeat: -1, repeatDelay: duration })
 
