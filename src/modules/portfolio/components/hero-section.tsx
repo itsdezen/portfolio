@@ -52,7 +52,7 @@ export function HeroSection() {
 		return () => timers.forEach(clearTimeout)
 	}, [])
 
-	// GSAP 3D Transform: Pin until 30deg, then allow scroll while continuing animation
+	// 3D scroll animation with pin + fade out
 	useGSAP(
 		() => {
 			if (!sectionRef.current || !contentRef.current) return
@@ -61,45 +61,52 @@ export function HeroSection() {
 				scrollTrigger: {
 					trigger: sectionRef.current,
 					start: "top top",
-					end: "+=200%", // Total scroll distance (100vh pin + 100vh continue)
-					scrub: 1,
+					end: "+=200%",
+					scrub: true,
 					pin: true,
-					pinSpacing: true,
+					pinSpacing: false, // No spacing - let about section overlap
+					anticipatePin: 1,
+					invalidateOnRefresh: true,
+					// markers: true,
 				},
 			})
 
-			// Phase 1: Transform to 30deg (first 50% of scroll)
-			tl.to(
+			// Animate content rotation + fade out simultaneously
+			tl.fromTo(
 				contentRef.current,
 				{
-					rotateX: 10, // Rotate to -30deg
-					rotateY: 75, // Diamond angle
-					rotateZ: 0, // Slight twist
-					scale: 1.2,
+					rotateX: 0,
+					rotateY: 0,
+					rotateZ: 0,
+					scale: 1,
+					x: 0,
+					y: 0,
 					z: 0,
-					y: 0, // Slide DOWN
-					ease: "power1.inOut",
+				},
+				{
+					rotateX: 45,
+					rotateY: 45,
+					rotateZ: 0,
+					scale: 1.5,
+					x: "30%",
+					y: "-30%",
+					z: 0,
+					ease: "none",
 				},
 				0,
+			).fromTo(
+				sectionRef.current,
+				{
+					opacity: 1,
+					filter: "blur(0px) brightness(1)",
+				},
+				{
+					opacity: 0,
+					filter: "blur(10px) brightness(0.5)",
+					ease: "none",
+				},
+				0, // Start at the same time (position 0)
 			)
-				// Phase 2: KEEP 30deg rotation, only zoom + slide (no more rotation)
-				.to(
-					contentRef.current,
-					{
-						// KEEP same rotation as phase 1 (no change)
-						rotateX: 10, // Stay at 10deg
-						rotateY: 75, // Stay at 75deg
-						rotateZ: 0, // Stay at 0deg
-						// Only change scale and position
-						scale: 1.1, // Zoom in larger
-						x: -100,
-						z: 0,
-						y: -100, // Slide DOWN more
-						opacity: 0.1,
-						ease: "power2.inOut",
-					},
-					">",
-				)
 		},
 		{ scope: sectionRef },
 	)

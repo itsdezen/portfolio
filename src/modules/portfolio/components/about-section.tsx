@@ -66,6 +66,7 @@ const getIconComponent = (iconName: string) => {
 }
 
 export function AboutSection({ about, contact }: AboutSectionProps) {
+	const sectionRef = useRef<HTMLElement>(null)
 	const imageRef = useRef<HTMLDivElement>(null)
 	const gridRef = useScrollStagger({
 		stagger: 0.04,
@@ -110,6 +111,26 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 			})
 		})
 	}
+
+	// Parallax effect - section slides up over hero
+	useGSAP(
+		() => {
+			if (!sectionRef.current) return
+
+			gsap.to(sectionRef.current, {
+				y: -400, // Stronger parallax - slides up more
+				ease: "none",
+				scrollTrigger: {
+					trigger: sectionRef.current,
+					start: "top bottom", // Start when section enters viewport
+					end: "top 20%", // End when section reaches 20% from top
+					scrub: true,
+					invalidateOnRefresh: true,
+				},
+			})
+		},
+		{ scope: sectionRef },
+	)
 
 	// Auto-cycle animations for cards - pause on hover, click to toggle
 	useGSAP(() => {
@@ -186,8 +207,9 @@ export function AboutSection({ about, contact }: AboutSectionProps) {
 
 	return (
 		<section
+			ref={sectionRef}
 			id="about"
-			className="mx-auto max-w-4xl px-4 pt-0 pb-32"
+			className="relative z-10 mx-auto max-w-4xl bg-bg px-4 pt-24 pb-32"
 			style={{ scrollMarginTop: "120px" }}
 		>
 			<div
