@@ -77,7 +77,7 @@ function ProjectBand({
 	return (
 		<div
 			className={cn(
-				"border-white/[0.07] border-t px-6 py-20",
+				"group relative border-white/[0.07] border-t px-6 py-20",
 				variant === "dark" ? "bg-black" : "bg-[#1c1c1e]",
 			)}
 		>
@@ -85,7 +85,7 @@ function ProjectBand({
 				<div
 					ref={reveal.ref}
 					className={cn(
-						"grid gap-14 transition-all duration-700 lg:grid-cols-[120px_1fr]",
+						"grid gap-14 overflow-hidden transition-all duration-700 lg:grid-cols-[120px_1fr]",
 						reveal.isVisible
 							? "translate-y-0 opacity-100"
 							: "translate-y-7 opacity-0",
@@ -133,6 +133,11 @@ function ProjectBand({
 						)}
 					</div>
 				</div>
+				<img
+					src={project.image}
+					alt=""
+					className="absolute top-0 right-0 bottom-0 h-full object-cover opacity-10 brightness-50 duration-300 ease-out sm:w-1/3 sm:translate-x-full sm:opacity-0 sm:opacity-100 sm:brightness-100 sm:group-hover:translate-x-0 sm:group-hover:opacity-50"
+				/>
 			</div>
 		</div>
 	)
