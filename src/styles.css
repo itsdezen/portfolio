@@ -482,7 +482,7 @@
   }
 
   /* Sections snap to position below navigation */
-  section[id] {
+  section[id]:not(#projects) {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }

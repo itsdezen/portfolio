@@ -15,6 +15,9 @@ interface ProjectsSectionProps {
 }
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
+	const sectionRef = useRef<HTMLElement>(null)
+	const stackRef = useRef<HTMLDivElement>(null)
+	const projectRefs = useRef<HTMLDivElement[]>([])
 	const intro = useScrollReveal()
 	const heading = useScrollReveal()
 
@@ -23,8 +26,69 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 		(p) => !["11", "12", "13", "14"].includes(p.id),
 	)
 
+	useGSAP(
+		() => {
+			const stack = stackRef.current
+			const cards = projectRefs.current.filter(Boolean)
+			if (!stack || cards.length === 0) return
+
+			gsap.set(cards, {
+				clearProps: "all",
+				transformOrigin: "50% 0%",
+			})
+
+			cards.forEach((card, index) => {
+				gsap.set(card, {
+					zIndex: index + 1,
+					yPercent: index === 0 ? 0 : 100,
+					rotateX: 0,
+					rotateZ: 0,
+				})
+			})
+
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: stack,
+					start: "top 52px",
+					end: () => `+=${(window.innerHeight - 52) * (cards.length - 1)}`,
+					scrub: true,
+					invalidateOnRefresh: true,
+				},
+			})
+
+			cards.slice(1).forEach((card, index) => {
+				const previousCard = cards[index]
+				tl.to(
+					previousCard,
+					{
+						scale: 1.5,
+						yPercent: -10,
+						rotateX: -10,
+						opacity: 0,
+						rotateZ: index % 2 === 0 ? -10 : 10,
+						ease: "none",
+					},
+					index,
+				)
+				tl.to(
+					card,
+					{
+						yPercent: 0,
+						ease: "none",
+					},
+					index,
+				)
+			})
+		},
+		{ scope: sectionRef, dependencies: [mainProjects.length] },
+	)
+
 	return (
-		<section id="projects" className="scroll-mt-[52px] bg-black">
+		<section
+			ref={sectionRef}
+			id="projects"
+			className="scroll-mt-[52px] bg-black"
+		>
 			{/* Intro */}
 			<div className="px-6 pt-32 pb-18">
 				<div className="mx-auto max-w-[980px]">
@@ -56,15 +120,25 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 				</div>
 			</div>
 
-			{/* Project bands */}
-			{mainProjects.map((project, index) => (
-				<ProjectBand
-					key={project.id}
-					project={project}
-					index={index + 1}
-					variant={index % 2 === 0 ? "dark" : "graphite"}
-				/>
-			))}
+			<div
+				ref={stackRef}
+				className="relative"
+				style={{ height: `calc(${mainProjects.length} * (100vh - 52px))` }}
+			>
+				<div className="sticky top-[52px] h-[calc(100vh-52px)] overflow-hidden">
+					{mainProjects.map((project, index) => (
+						<ProjectBand
+							key={project.id}
+							project={project}
+							index={index + 1}
+							ref={(element) => {
+								if (element) projectRefs.current[index] = element
+							}}
+							variant={index % 2 === 0 ? "dark" : "graphite"}
+						/>
+					))}
+				</div>
+			</div>
 		</section>
 	)
 }
@@ -72,66 +146,40 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 function ProjectBand({
 	project,
 	index,
+	ref,
 	variant,
 }: {
 	project: Project
 	index: number
+	ref: (element: HTMLDivElement | null) => void
 	variant: "dark" | "graphite"
 }) {
 	const reveal = useScrollReveal()
-	const overlayRef = useRef<HTMLDivElement>(null)
-	const imageRef = useRef<HTMLImageElement>(null)
-
-	useGSAP(() => {
-		if (!imageRef.current) return
-
-		gsap.to(imageRef.current, {
-			opacity: 1,
-			ease: "none",
-			scrollTrigger: {
-				trigger: imageRef.current,
-				start: "top bottom",
-				end: "bottom top",
-				scrub: true,
-				onUpdate: (self) => {
-					// Calculate distance from center of viewport
-					// progress: 0 (top of viewport) → 0.5 (center) → 1 (bottom)
-					const progress = self.progress
-					const centerDistance = Math.abs(progress - 0.5) * 2 // 0 at center, 1 at edges
-					const opacity = 1 - centerDistance * 0.9 // 1 at center, 0.1 at edges
-					const overlayOpacity = 0.32 + (1 - centerDistance) * 0.42
-
-					gsap.set(imageRef.current, { opacity })
-					if (overlayRef.current) {
-						gsap.set(overlayRef.current, { opacity: overlayOpacity })
-					}
-				},
-			},
-		})
-	}, [])
 
 	return (
 		<div
+			ref={ref}
 			className={cn(
-				"group relative overflow-hidden border-white/[0.07] border-t px-6 py-20",
+				"group absolute inset-0 overflow-hidden border-white/[0.07] border-t px-6 py-20",
 				variant === "dark" ? "bg-black" : "bg-[#1c1c1e]",
 			)}
+			style={{ zIndex: index }}
 		>
 			<img
-				ref={imageRef}
+				data-project-image
 				src={project.image}
 				alt=""
 				className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-10 md:left-auto md:w-1/3 md:brightness-75"
 			/>
+			<div className="pointer-events-none absolute inset-0 z-0 bg-black opacity-[0.32] md:hidden" />
 			<div
-				ref={overlayRef}
-				className="pointer-events-none absolute inset-0 z-0 bg-black opacity-[0.32] md:hidden"
-			/>
-			<div className="relative z-10 mx-auto max-w-[980px]">
+				data-project-content
+				className="relative z-10 mx-auto flex h-full max-w-[980px] items-center"
+			>
 				<div
 					ref={reveal.ref}
 					className={cn(
-						"grid gap-14 overflow-hidden transition-all duration-700 lg:grid-cols-[120px_1fr]",
+						"grid w-full gap-14 overflow-hidden transition-all duration-700 lg:grid-cols-[120px_1fr]",
 						reveal.isVisible
 							? "translate-y-0 opacity-100"
 							: "translate-y-7 opacity-0",
