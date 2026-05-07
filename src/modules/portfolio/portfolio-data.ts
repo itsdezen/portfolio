@@ -13,17 +13,17 @@ export const heroData = {
 	nickname: "onepercman",
 	headline: "Less complexity,\nmore impact.",
 	tagline:
-		"Frontend Engineer specializing in real-time systems, Web3 architecture, and zero-to-one product development.",
+		"Fullstack Engineer (FE-focused) specializing in real-time systems, blockchain architecture, and zero-to-one product development.",
 	location: "Hanoi, Vietnam (GMT+7)",
 	experience: "4+ years",
 	status: "Available for opportunities",
 	intro:
-		"Frontend Engineer with 4+ years of experience building scalable, high-performance frontend systems across fintech, enterprise, and consumer products. Strong focus on real-time systems, complex UI architecture, and zero-to-one product development. Recognized for deep technical expertise, with experience leading frontend initiatives, improving engineering quality, and delivering production-ready systems.",
+		"Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance frontend systems across fintech, enterprise, and consumer products. Strong focus on real-time systems, complex UI architecture, and zero-to-one product development. Recognized for deep technical expertise, with experience leading frontend initiatives, improving engineering quality, and delivering production-ready systems.",
 }
 
 export const portfolioData = {
 	name: "Trung Tran Duy",
-	title: "Frontend Engineer & Web3 Architect",
+	title: "Fullstack Engineer (FE-focused)",
 	specialties: ["Real-time systems", "Zero-to-one products"],
 	availability: {
 		status: "Available for opportunities",
@@ -32,7 +32,7 @@ export const portfolioData = {
 	timezone: "GMT+7",
 	stats: [
 		{ value: "4", suffix: "+", label: "Years prod" },
-		{ value: "200", suffix: "+", label: "Web3 products" },
+		{ value: "200", suffix: "+", label: "Products" },
 	],
 	coreStack: [
 		[
@@ -196,7 +196,7 @@ export const projects: Project[] = [
 			"https://cdn-i.vtcnews.vn/resize/th/upload/2023/07/16/nhieu-nha-may-thuy-dien-tang-cong-suat-phat-dien-xa-tran-don-lu-11163427.jpg",
 		category: "Enterprise / Government",
 		year: "2021-2022",
-		role: "Frontend Engineer",
+		role: "Fullstack Engineer (FE-focused)",
 		tags: ["React", "TypeScript", "Enterprise", "Refactoring"],
 		link: "#",
 		gradientFrom: "rgba(34, 197, 94, 0.9)",
@@ -211,7 +211,7 @@ export const projects: Project[] = [
 		image: "https://dl.vinhtantpc.com.vn:8888/img/3334.png",
 		category: "Enterprise / Government",
 		year: "2021-2022",
-		role: "Frontend Engineer",
+		role: "Fullstack Engineer (FE-focused)",
 		tags: ["Next.js", "TypeScript", "SSR", "Migration"],
 		link: "#",
 		gradientFrom: "rgba(59, 130, 246, 0.9)",
@@ -287,8 +287,8 @@ export const projects: Project[] = [
 export const aboutData: AboutInfo = {
 	title: "Building systems that scale.\nInterfaces that last.",
 	description: [
-		"I'm Trung — a Frontend Engineer with 4+ years shipping production systems across fintech, enterprise, and Web3. I specialize in real-time UI architecture, complex state management, and the kind of zero-to-one work where the stack doesn't exist yet.",
-		"I've built a derivatives trading platform running x1000 leverage on live WebSocket feeds, shipped an NFT ecosystem that sold 7,413 assets in 30 minutes, and delivered 200+ outsourced DApp products across DEX, CEX, launchpad, and GameFi verticals.",
+		"I'm Trung — a Fullstack Engineer (FE-focused) with 4+ years shipping production systems across fintech, enterprise, and consumer products. I specialize in real-time UI architecture, complex state management, and the kind of zero-to-one work where the stack doesn't exist yet.",
+		"I've built a derivatives trading platform running x1000 leverage on live WebSocket feeds, shipped an NFT ecosystem that sold 7,413 assets in 30 minutes, and delivered 200+ outsourced DApp products across various verticals.",
 		"Currently freelancing and exploring AI-assisted development workflows — treating models as pair-programmers, not code generators. The motto: one percent better, every day.",
 	],
 	image: "/avatar.jpeg",
@@ -296,8 +296,8 @@ export const aboutData: AboutInfo = {
 	highlights: [],
 	stats: [
 		{ number: "4+", label: "Years shipping in production" },
-		{ number: "200+", label: "Web3 products delivered" },
-		{ number: "7.4K", label: "NFT assets sold in 30 min" },
+		{ number: "200+", label: "Products delivered" },
+		{ number: "7.4K", label: "Assets sold in 30 min" },
 		{ number: "15K+", label: "App downloads in 6 days" },
 	],
 }
@@ -325,12 +325,12 @@ export const experiences: Experience[] = [
 		role: "Frontend Lead",
 		period: "Apr 2022 – Aug 2023",
 		description:
-			"Delivered 200+ outsourced Web3 products (DEX, CEX, launchpads, NFT marketplaces, trading tools). Led RunTogether (7,413 assets sold in 30 minutes, 15,000+ downloads in 6 days, Top #2 Google Play Vietnam), Mcity metaverse platform with Three.js, and Animverse GameFi ecosystem. Defined frontend architecture and engineering standards, mentored engineers and trained interns to full-time conversion.",
+			"Delivered 200+ outsourced products (DEX, CEX, launchpads, marketplaces, trading tools). Led RunTogether (7,413 assets sold in 30 minutes, 15,000+ downloads in 6 days, Top #2 Google Play Vietnam), Mcity metaverse platform with Three.js, and Animverse GameFi ecosystem. Defined frontend architecture and engineering standards, mentored engineers and trained interns to full-time conversion.",
 	},
 	{
 		id: "4",
 		company: "Teracom",
-		role: "Frontend Engineer (Intern → Junior)",
+		role: "Fullstack Engineer (FE-focused) (Intern → Junior)",
 		period: "Jun 2021 – Apr 2022",
 		description:
 			"Built CMS platforms and government portals. Introduced SSR to improve SEO and performance. Refactored large-scale frontend systems (Son La HPC) and migrated legacy systems to Next.js + TypeScript (Vinh Tan TPC).",
