@@ -4,24 +4,24 @@
 	"description": "Fullstack Developer with 5+ years building complex frontend systems across enterprise, consumer, and fintech products. Expert in React, TypeScript, Next.js, Node.js, Flutter, and Go.",
 	"start_url": "/",
 	"display": "standalone",
-	"background_color": "#ffffff",
-	"theme_color": "#ef4444",
+	"background_color": "#090909",
+	"theme_color": "#090909",
 	"orientation": "portrait-primary",
 	"scope": "/",
 	"lang": "en",
 	"categories": [],
 	"icons": [
 		{
-			"src": "/favicon-16x16.png",
-			"sizes": "16x16",
+			"src": "/web-app-manifest-192x192.png",
+			"sizes": "192x192",
 			"type": "image/png",
-			"purpose": "maskable any"
+			"purpose": "maskable"
 		},
 		{
-			"src": "/favicon-32x32.png",
-			"sizes": "32x32",
+			"src": "/web-app-manifest-512x512.png",
+			"sizes": "512x512",
 			"type": "image/png",
-			"purpose": "maskable any"
+			"purpose": "maskable"
 		}
 	]
 }

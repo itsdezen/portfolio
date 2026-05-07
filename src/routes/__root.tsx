@@ -79,8 +79,8 @@ export const Route = createRootRoute({
 				{ name: "twitter:creator", content: "@onepercman" },
 
 				// Additional SEO
-				{ name: "theme-color", content: "#f4c430" },
-				{ name: "msapplication-TileColor", content: "#f4c430" },
+				{ name: "theme-color", content: "#090909" },
+				{ name: "msapplication-TileColor", content: "#090909" },
 				{ name: "apple-mobile-web-app-capable", content: "yes" },
 				{ name: "apple-mobile-web-app-status-bar-style", content: "default" },
 				{ name: "apple-mobile-web-app-title", content: "onepercman" },
@@ -160,10 +160,11 @@ export const Route = createRootRoute({
 				},
 
 				// Favicon and icons
-				{ rel: "icon", href: "/favicon.ico", sizes: "48x48" },
+				{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+				{ rel: "shortcut icon", href: "/favicon.ico" },
 				{
 					rel: "icon",
-					href: "/icon-96x96.png",
+					href: "/favicon-96x96.png",
 					type: "image/png",
 					sizes: "96x96",
 				},
@@ -171,18 +172,6 @@ export const Route = createRootRoute({
 					rel: "apple-touch-icon",
 					href: "/apple-touch-icon.png",
 					sizes: "180x180",
-				},
-				{
-					rel: "icon",
-					href: "/favicon-16x16.png",
-					type: "image/png",
-					sizes: "16x16",
-				},
-				{
-					rel: "icon",
-					href: "/favicon-32x32.png",
-					type: "image/png",
-					sizes: "32x32",
 				},
 
 				// Manifest for PWA
