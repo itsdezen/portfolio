@@ -1,8 +1,14 @@
 "use client"
 
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef } from "react"
 import { useScrollReveal } from "~/shared/hooks"
 import { cn } from "~/shared/utils"
 import type { Project } from "../portfolio-types"
+
+gsap.registerPlugin(ScrollTrigger)
 
 interface ProjectsSectionNewProps {
 	projects: Project[]
@@ -73,15 +79,55 @@ function ProjectBand({
 	variant: "dark" | "graphite"
 }) {
 	const reveal = useScrollReveal()
+	const overlayRef = useRef<HTMLDivElement>(null)
+	const imageRef = useRef<HTMLImageElement>(null)
+
+	useGSAP(() => {
+		if (!imageRef.current) return
+
+		gsap.to(imageRef.current, {
+			opacity: 1,
+			ease: "none",
+			scrollTrigger: {
+				trigger: imageRef.current,
+				start: "top bottom",
+				end: "bottom top",
+				scrub: true,
+				onUpdate: (self) => {
+					// Calculate distance from center of viewport
+					// progress: 0 (top of viewport) → 0.5 (center) → 1 (bottom)
+					const progress = self.progress
+					const centerDistance = Math.abs(progress - 0.5) * 2 // 0 at center, 1 at edges
+					const opacity = 1 - centerDistance * 0.9 // 1 at center, 0.1 at edges
+					const overlayOpacity = 0.32 + (1 - centerDistance) * 0.42
+
+					gsap.set(imageRef.current, { opacity })
+					if (overlayRef.current) {
+						gsap.set(overlayRef.current, { opacity: overlayOpacity })
+					}
+				},
+			},
+		})
+	}, [])
 
 	return (
 		<div
 			className={cn(
-				"group relative border-white/[0.07] border-t px-6 py-20",
+				"group relative overflow-hidden border-white/[0.07] border-t px-6 py-20",
 				variant === "dark" ? "bg-black" : "bg-[#1c1c1e]",
 			)}
 		>
-			<div className="mx-auto max-w-[980px]">
+			<img
+				ref={imageRef}
+				src={project.image}
+				alt=""
+				className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-10 md:left-auto md:w-1/3 md:brightness-75"
+			/>
+			<div
+				ref={overlayRef}
+				className="pointer-events-none absolute inset-0 z-0 bg-black opacity-[0.32] md:hidden"
+			/>
+			<div className="relative z-10 mx-auto max-w-[980px]">
 				<div
 					ref={reveal.ref}
 					className={cn(
@@ -133,11 +179,6 @@ function ProjectBand({
 						)}
 					</div>
 				</div>
-				<img
-					src={project.image}
-					alt=""
-					className="absolute top-0 right-0 bottom-0 h-full object-cover opacity-10 brightness-50 duration-300 ease-out sm:w-1/3 sm:translate-x-full sm:opacity-0 sm:opacity-100 sm:brightness-100 sm:group-hover:translate-x-0 sm:group-hover:opacity-50"
-				/>
 			</div>
 		</div>
 	)
