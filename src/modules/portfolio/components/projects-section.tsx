@@ -184,7 +184,7 @@ function ProjectBand({
 			<img
 				data-project-image
 				src={project.image}
-				alt=""
+				alt={`${project.title} - ${project.category} project screenshot`}
 				className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-10 md:left-auto md:w-1/3 md:brightness-75"
 			/>
 			<div className="pointer-events-none absolute inset-0 z-0 bg-black opacity-[0.32] md:hidden" />

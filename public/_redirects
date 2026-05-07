@@ -1,0 +1,8 @@
+# Redirect www to non-www (or vice versa depending on your preference)
+# This ensures all traffic goes to the same domain for SEO consistency
+
+# Redirect non-www to www (if you prefer www)
+# https://onepercman.com/* https://www.onepercman.com/:splat 301!
+
+# OR redirect www to non-www (recommended for cleaner URLs)
+https://www.onepercman.com/* https://onepercman.com/:splat 301!

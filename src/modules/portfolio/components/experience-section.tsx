@@ -154,7 +154,8 @@ function TimelineEntry({
 			{/* Content */}
 			<div>
 				<h3 className="mb-0.75 font-display font-semibold text-[21px] tracking-[-0.012em]">
-					{experience.role}
+					{experience.role}{" "}
+					{!isEducation && `at ${experience.company.split(" (")[0]}`}
 				</h3>
 				<div className="mb-3.5 text-[15px] text-muted-fg">
 					{experience.company}

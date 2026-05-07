@@ -225,7 +225,7 @@ export function HeroSection() {
 			<img
 				ref={logoRef}
 				src="/logo.svg"
-				alt=""
+				alt="onepercman logo watermark"
 				className="pointer-events-none absolute right-[72px] bottom-[60px] z-[1] h-[180px] w-[180px] select-none opacity-[0.025] md:h-[220px] md:w-[220px]"
 				aria-hidden="true"
 			/>
@@ -302,6 +302,7 @@ export function HeroSection() {
 							)}
 							style={{ transitionDelay: "550ms" }}
 						>
+							<span className="sr-only">Trung Tran Duy is a </span>
 							{portfolioData.title}
 							<br />
 							{portfolioData.specialties.join(" · ")}

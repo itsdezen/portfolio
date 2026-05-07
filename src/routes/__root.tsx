@@ -25,7 +25,7 @@ export const Route = createRootRoute({
 				{
 					name: "description",
 					content:
-						"Trung Tran Duy (onepercman) - Fullstack Developer with 5+ years building complex frontend systems across enterprise, consumer, and fintech products. Expert in React, TypeScript, Next.js, Node.js, Flutter, and Go.",
+						"Fullstack Engineer specializing in building scalable, high-performance web applications. 5+ years crafting modern solutions with React, TypeScript, Next.js, and Node.js. Available for consulting and collaboration on innovative projects.",
 				},
 				{
 					name: "keywords",
@@ -39,7 +39,7 @@ export const Route = createRootRoute({
 
 				// Open Graph / Facebook
 				{ property: "og:type", content: "website" },
-				{ property: "og:url", content: "https://onepercman.github.io" },
+				{ property: "og:url", content: "https://onepercman.com" },
 				{
 					property: "og:title",
 					content:
@@ -61,7 +61,7 @@ export const Route = createRootRoute({
 
 				// Twitter
 				{ name: "twitter:card", content: "summary_large_image" },
-				{ name: "twitter:url", content: "https://onepercman.github.io" },
+				{ name: "twitter:url", content: "https://onepercman.com" },
 				{
 					name: "twitter:title",
 					content:
@@ -96,7 +96,7 @@ export const Route = createRootRoute({
 						alternateName: "onepercman",
 						description:
 							"Fullstack Developer with 5+ years of experience building complex frontend systems across enterprise, consumer, and fintech products",
-						url: "https://onepercman.github.io",
+						url: "https://onepercman.com",
 						image: "/thumbnail.png",
 						email: "onepercman@gmail.com",
 						sameAs: [
@@ -143,7 +143,7 @@ export const Route = createRootRoute({
 				},
 				{
 					rel: "canonical",
-					href: "https://onepercman.github.io",
+					href: "https://onepercman.com",
 				},
 				{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 				{
