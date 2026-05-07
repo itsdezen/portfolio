@@ -12,12 +12,77 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 export function HeroSection() {
 	const sectionRef = useRef<HTMLElement>(null)
 	const contentRef = useRef<HTMLDivElement>(null)
+	const logoRef = useRef<HTMLImageElement>(null)
 	const [mounted, setMounted] = useState(false)
 
 	// Single state update instead of 7 - prevents multiple re-renders
 	useEffect(() => {
 		const timer = setTimeout(() => setMounted(true), 100)
 		return () => clearTimeout(timer)
+	}, [])
+
+	useEffect(() => {
+		const section = sectionRef.current
+		const logo = logoRef.current
+		if (!section || !logo) return
+
+		let animationFrame = 0
+		let currentRotateX = 0
+		let currentRotateY = 0
+		let currentRotateZ = 0
+		let targetRotateX = 0
+		let targetRotateY = 0
+		let targetRotateZ = 0
+
+		gsap.set(logo, {
+			force3D: true,
+			transformPerspective: 900,
+			transformOrigin: "50% 50%",
+			willChange: "transform",
+		})
+
+		const damp = () => {
+			currentRotateX += (targetRotateX - currentRotateX) * 0.1
+			currentRotateY += (targetRotateY - currentRotateY) * 0.1
+			currentRotateZ += (targetRotateZ - currentRotateZ) * 0.08
+
+			gsap.set(logo, {
+				rotateX: currentRotateX,
+				rotateY: currentRotateY,
+				rotateZ: currentRotateZ,
+			})
+
+			animationFrame = requestAnimationFrame(damp)
+		}
+
+		const handlePointerMove = (event: PointerEvent) => {
+			const rect = section.getBoundingClientRect()
+			const x = (event.clientX - rect.left) / rect.width - 0.5
+			const y = (event.clientY - rect.top) / rect.height - 0.5
+
+			targetRotateX = y * -18
+			targetRotateY = x * 18
+			targetRotateZ = x * 4
+		}
+
+		const resetRotation = () => {
+			targetRotateX = 0
+			targetRotateY = 0
+			targetRotateZ = 0
+		}
+
+		animationFrame = requestAnimationFrame(damp)
+		section.addEventListener("pointermove", handlePointerMove, {
+			passive: true,
+		})
+		section.addEventListener("pointerleave", resetRotation)
+
+		return () => {
+			cancelAnimationFrame(animationFrame)
+			section.removeEventListener("pointermove", handlePointerMove)
+			section.removeEventListener("pointerleave", resetRotation)
+			gsap.set(logo, { clearProps: "transform,willChange" })
+		}
 	}, [])
 
 	// 3D scroll animation with pin + fade + darken - OPTIMIZED for 60fps
@@ -153,13 +218,14 @@ export function HeroSection() {
 			<div className="pointer-events-none absolute bottom-10 left-10 z-20 h-4 w-4 border-white/8 border-b-[1.5px] border-l-[1.5px] lg:bottom-12 lg:left-12" />
 			<div className="pointer-events-none absolute right-10 bottom-10 z-20 h-4 w-4 border-white/8 border-r-[1.5px] border-b-[1.5px] lg:right-12 lg:bottom-12" />
 
-			{/* Large monogram background - reduced opacity */}
-			<div
-				className="pointer-events-none absolute right-[72px] bottom-[60px] z-[1] select-none font-bold font-sans text-[200px] text-white/1 tracking-[-0.06em]"
+			{/* Faint brand mark background */}
+			<img
+				ref={logoRef}
+				src="/logo.svg"
+				alt=""
+				className="pointer-events-none absolute right-[72px] bottom-[60px] z-[1] h-[180px] w-[180px] select-none opacity-[0.025] md:h-[220px] md:w-[220px]"
 				aria-hidden="true"
-			>
-				{portfolioData.name.charAt(0)}
-			</div>
+			/>
 
 			{/* Main content */}
 			<div

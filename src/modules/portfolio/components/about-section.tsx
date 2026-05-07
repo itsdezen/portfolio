@@ -1,717 +1,94 @@
 "use client"
 
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
-import {
-	Briefcase,
-	Code2,
-	Download,
-	Globe,
-	GraduationCap,
-	Mail,
-	MapPin,
-	Send,
-	Sparkles,
-	TrendingUp,
-} from "lucide-react"
-import { useRef } from "react"
-import { useScrollStagger } from "~/shared/utils"
-import type { AboutInfo, ContactInfo } from "../portfolio-types"
+import { useScrollReveal } from "~/shared/hooks"
+import { cn } from "~/shared/utils"
+import type { AboutInfo } from "../portfolio-types"
 
 interface AboutSectionProps {
 	about: AboutInfo
-	contact: ContactInfo
 }
 
-// Custom icon components for social media
-const GithubIcon = ({ className }: { className?: string }) => (
-	<svg
-		viewBox="0 0 24 24"
-		fill="none"
-		stroke="currentColor"
-		strokeWidth="2"
-		strokeLinecap="round"
-		strokeLinejoin="round"
-		className={className}
-	>
-		<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-		<path d="M9 18c-4.51 2-5-2-7-2" />
-	</svg>
-)
-
-const LinkedinIcon = ({ className }: { className?: string }) => (
-	<svg
-		viewBox="0 0 24 24"
-		fill="none"
-		stroke="currentColor"
-		strokeWidth="2"
-		strokeLinecap="round"
-		strokeLinejoin="round"
-		className={className}
-	>
-		<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-		<rect width="4" height="12" x="2" y="9" />
-		<circle cx="4" cy="4" r="2" />
-	</svg>
-)
-
-// Helper to get the correct icon component based on icon name
-const getIconComponent = (iconName: string) => {
-	const icons: Record<string, React.ComponentType<{ className?: string }>> = {
-		github: GithubIcon,
-		linkedin: LinkedinIcon,
-		send: Send,
-	}
-	return icons[iconName.toLowerCase()] || Mail
-}
-
-export function AboutSection({ about, contact }: AboutSectionProps) {
-	const sectionRef = useRef<HTMLElement>(null)
-	const imageRef = useRef<HTMLDivElement>(null)
-	const gridRef = useScrollStagger({
-		stagger: 0.04,
-		duration: 0.4,
-		start: "top 75%",
-	})
-	const experienceRef = useRef<HTMLDivElement>(null)
-	const educationRef = useRef<HTMLDivElement>(null)
-	const projectsRef = useRef<HTMLDivElement>(null)
-	const techStackRef = useRef<HTMLDivElement>(null)
-
-	const animatedName = (about.title || "YOUR NAME").split(" ")
-
-	// Use GSAP for smooth mouse tracking without re-renders - OPTIMIZED
-	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (!imageRef.current) return
-		const rect = imageRef.current.getBoundingClientRect()
-		const x = (e.clientX - rect.left - rect.width / 2) / rect.width
-		const y = (e.clientY - rect.top - rect.height / 2) / rect.height
-
-		// Use GSAP quickTo for better performance
-		const images = imageRef.current.querySelectorAll("img")
-		images.forEach((img) => {
-			gsap.to(img, {
-				x: x * 15,
-				y: y * 15,
-				duration: 0.3,
-				ease: "power2.out",
-				force3D: true,
-			})
-		})
-	}
-
-	const handleMouseLeave = () => {
-		if (!imageRef.current) return
-		const images = imageRef.current.querySelectorAll("img")
-		images.forEach((img) => {
-			gsap.to(img, {
-				x: 0,
-				y: 0,
-				duration: 0.5,
-				ease: "power2.out",
-				force3D: true,
-			})
-		})
-	}
-
-	// Parallax effect - section slides up over hero - OPTIMIZED
-	useGSAP(
-		() => {
-			if (!sectionRef.current) return
-
-			// Force GPU layer
-			gsap.set(sectionRef.current, {
-				force3D: true,
-				willChange: "transform",
-			})
-
-			gsap.to(sectionRef.current, {
-				y: -400,
-				ease: "none",
-				scrollTrigger: {
-					trigger: sectionRef.current,
-					start: "top bottom",
-					end: "top 20%",
-					scrub: 1, // Smooth scrub
-					invalidateOnRefresh: true,
-				},
-			})
-		},
-		{ scope: sectionRef },
-	)
-
-	// Auto-cycle animations for cards - OPTIMIZED with GPU acceleration
-	useGSAP(() => {
-		const cards = [
-			{ ref: experienceRef, duration: 3 },
-			{ ref: educationRef, duration: 3 },
-			{ ref: projectsRef, duration: 3 },
-			{ ref: techStackRef, duration: 3 },
-		]
-
-		const cleanup: (() => void)[] = []
-
-		cards.forEach(({ ref, duration }) => {
-			if (!ref.current) return
-
-			const content = ref.current.querySelector(".slide-content")
-			if (!content) return
-
-			// Force GPU acceleration
-			gsap.set(content, {
-				force3D: true,
-				willChange: "transform",
-			})
-
-			const tl = gsap.timeline({ repeat: -1, repeatDelay: duration })
-
-			tl.to(content, {
-				y: "-50%",
-				duration: 0.6,
-				ease: "power2.inOut",
-				delay: duration,
-			}).to(content, {
-				y: "0%",
-				duration: 0.6,
-				ease: "power2.inOut",
-				delay: duration,
-			})
-
-			// Pause on hover
-			const handleMouseEnter = () => tl.pause()
-			const handleMouseLeave = () => tl.resume()
-
-			// Click to toggle content immediately
-			const handleClick = () => {
-				const currentY = gsap.getProperty(content, "y")
-				const targetY = currentY === "0%" || currentY === 0 ? "-50%" : "0%"
-
-				// Stop timeline temporarily
-				tl.pause()
-
-				// Animate to opposite state
-				gsap.to(content, {
-					y: targetY,
-					duration: 0.4,
-					ease: "power2.inOut",
-					onComplete: () => {
-						// Resume timeline from new position
-						tl.resume()
-					},
-				})
-			}
-
-			ref.current.addEventListener("mouseenter", handleMouseEnter)
-			ref.current.addEventListener("mouseleave", handleMouseLeave)
-			ref.current.addEventListener("click", handleClick)
-
-			cleanup.push(() => {
-				ref.current?.removeEventListener("mouseenter", handleMouseEnter)
-				ref.current?.removeEventListener("mouseleave", handleMouseLeave)
-				ref.current?.removeEventListener("click", handleClick)
-			})
-		})
-
-		return () => {
-			for (const fn of cleanup) {
-				fn()
-			}
-		}
-	})
+export function AboutSection({ about }: AboutSectionProps) {
+	const eyebrow = useScrollReveal()
+	const headline = useScrollReveal()
+	const bio = useScrollReveal()
+	const stats = useScrollReveal()
 
 	return (
 		<section
-			ref={sectionRef}
 			id="about"
-			className="relative z-10 mx-auto max-w-4xl bg-bg px-4 pt-24 pb-32"
-			style={{ scrollMarginTop: "120px" }}
+			className="scroll-mt-[52px] bg-gray px-6 py-32 text-ink"
 		>
-			<div
-				ref={gridRef as React.RefObject<HTMLDivElement>}
-				className="grid auto-rows-[110px] grid-cols-4 gap-2 md:auto-rows-[120px] md:grid-cols-8 md:gap-2.5"
-			>
-				{/* Row 1-2: Name + Portrait + Bio */}
-				{/* Name Card */}
-				<div className="group relative col-span-2 row-span-2 overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-4 backdrop-blur-md md:col-span-2 md:row-span-1">
-					<div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-						<div className="h-full w-full scale-110 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] mix-blend-overlay blur-3xl will-change-transform" />
+			<div className="mx-auto max-w-[980px]">
+				{/* Eyebrow */}
+				<p
+					ref={eyebrow.ref}
+					className={cn(
+						"mb-6 font-mono text-[11px] text-muted-fg uppercase tracking-[0.09em] transition-all duration-700",
+						eyebrow.isVisible
+							? "translate-y-0 opacity-100"
+							: "translate-y-7 opacity-0",
+					)}
+				>
+					About
+				</p>
+
+				{/* Headline */}
+				<h2
+					ref={headline.ref}
+					className={cn(
+						"mb-16 max-w-[620px] whitespace-pre-line font-display font-semibold text-[clamp(34px,4.5vw,52px)] leading-[1.07] tracking-[-0.024em] transition-all duration-700",
+						headline.isVisible
+							? "translate-y-0 opacity-100"
+							: "translate-y-7 opacity-0",
+					)}
+					style={{ transitionDelay: "0.1s" }}
+				>
+					{about.title}
+				</h2>
+
+				{/* Two-column layout */}
+				<div className="grid gap-20 lg:grid-cols-[1fr_380px]">
+					{/* Bio */}
+					<div
+						ref={bio.ref}
+						className={cn(
+							"space-y-5 text-[17px] leading-[1.55] tracking-[-0.022em] transition-all duration-700",
+							bio.isVisible
+								? "translate-y-0 opacity-100"
+								: "translate-y-7 opacity-0",
+						)}
+						style={{ transitionDelay: "0.2s", textWrap: "pretty" }}
+					>
+						{about.description.map((paragraph, i) => (
+							<p key={i}>{paragraph}</p>
+						))}
 					</div>
-					<div className="relative z-10 flex h-full w-full flex-col items-start justify-between">
-						<div className="flex w-full flex-col">
-							{animatedName.map((word, wordIndex) => (
-								<div
-									key={wordIndex}
-									className="flex justify-start bg-linear-to-b from-fg to-muted-fg bg-clip-text font-black text-transparent text-xl leading-[1.1] tracking-tighter drop-shadow-sm md:text-2xl dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]"
-								>
-									{word.split("").map((letter, letterIndex) => (
-										<div key={letterIndex} className="inline-block">
-											<span className="inline-block">{letter}</span>
-										</div>
-									))}
+
+					{/* Stats grid */}
+					{about.stats && about.stats.length > 0 && (
+						<div
+							ref={stats.ref}
+							className={cn(
+								"grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-fg/5 backdrop-blur transition-all duration-700",
+								stats.isVisible
+									? "translate-y-0 opacity-100"
+									: "translate-y-7 opacity-0",
+							)}
+							style={{ transitionDelay: "0.3s" }}
+						>
+							{about.stats.map((stat, i) => (
+								<div key={i} className="bg-gray p-7">
+									<div className="mb-1.5 font-display font-semibold text-[52px] leading-none tracking-[-0.025em]">
+										{stat.number}
+									</div>
+									<div className="text-[13px] text-muted-fg leading-[1.45] tracking-[-0.01em]">
+										{stat.label}
+									</div>
 								</div>
 							))}
-							<a
-								href={`mailto:${contact.email}`}
-								className="mt-1 font-mono text-[9px] text-muted-fg transition-colors hover:text-primary"
-							>
-								{contact.email}
-							</a>
 						</div>
-						<div className="flex flex-col gap-1">
-							<div className="h-px w-8 bg-fg/20" />
-							<span className="font-mono text-[8px] text-muted-fg uppercase tracking-[0.15em] opacity-70">
-								Frontend Engineer
-							</span>
-						</div>
-					</div>
-				</div>
-
-				{/* Portrait Image */}
-				<div
-					ref={imageRef}
-					onMouseMove={handleMouseMove}
-					onMouseLeave={handleMouseLeave}
-					className="group/portrait relative col-span-2 row-span-2 overflow-hidden rounded-3xl border border-border md:col-span-2 md:row-span-3"
-				>
-					<img
-						alt="Avatar"
-						src={about.images?.[0] || about.image}
-						className="absolute inset-0 h-full w-full scale-110 object-cover transition-opacity duration-500 group-hover/portrait:opacity-0"
-					/>
-					{about.images?.[1] && (
-						<img
-							alt="Portrait"
-							src={about.images[1]}
-							className="absolute inset-0 h-full w-full scale-110 object-cover opacity-0 transition-opacity duration-500 group-hover/portrait:opacity-100"
-						/>
 					)}
-				</div>
-
-				{/* About Bio */}
-				<div className="group relative col-span-4 row-span-2 overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-4 backdrop-blur-md transition-all hover:shadow-lg hover:shadow-primary/5 md:col-span-4 md:row-span-2">
-					<div className="flex h-full flex-col justify-between">
-						<div className="mb-2 flex items-center gap-1.5">
-							<Sparkles className="h-3 w-3 text-primary" />
-							<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-								About
-							</h3>
-						</div>
-						<div className="space-y-2">
-							<p className="text-[10px] text-fg leading-relaxed md:text-[11px]">
-								Frontend Engineer with{" "}
-								<strong className="text-primary">4+ years of experience</strong>{" "}
-								building scalable, high-performance frontend systems across
-								fintech, enterprise, and consumer products.
-							</p>
-							<p className="hidden text-[10px] text-muted-fg leading-relaxed opacity-80 md:block">
-								Strong focus on{" "}
-								<strong className="text-primary">real-time systems</strong>,
-								complex UI architecture, and zero-to-one product development.
-								Recognized for deep technical expertise, with experience leading
-								frontend initiatives, improving engineering quality, and
-								delivering production-ready systems.
-							</p>
-						</div>
-						<div className="mt-2 flex flex-wrap gap-1">
-							<span className="rounded-full bg-primary/10 px-2 py-0.5 text-[8px] text-primary">
-								4+ years
-							</span>
-							<span className="rounded-full bg-muted/30 px-2 py-0.5 text-[8px] text-muted-fg">
-								Frontend Lead
-							</span>
-							<span className="rounded-full bg-muted/30 px-2 py-0.5 text-[8px] text-muted-fg">
-								Real-time Systems
-							</span>
-							<span className="rounded-full bg-muted/30 px-2 py-0.5 text-[8px] text-muted-fg">
-								Web3
-							</span>
-						</div>
-					</div>
-				</div>
-
-				{/* Row 3: Experience + Education + Current Focus */}
-				{/* Experience - Auto Slide */}
-				<div
-					ref={experienceRef}
-					className="group relative col-span-2 row-span-2 cursor-pointer overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-3 backdrop-blur-md transition-all duration-300 hover:border-primary/50 md:col-span-2 md:row-span-2"
-				>
-					<div className="relative h-full w-full overflow-hidden">
-						{/* Content Container - Auto slides vertically */}
-						<div className="slide-content flex h-[200%] flex-col">
-							{/* Front View */}
-							<div className="flex h-1/2 shrink-0 flex-col justify-between">
-								<div className="flex items-center gap-1.5">
-									<Briefcase className="h-2.5 w-2.5 text-primary" />
-									<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-										Experience
-									</h3>
-								</div>
-								<div className="space-y-0.5">
-									<span className="block font-semibold text-[10px] text-fg">
-										Frontend Engineer
-									</span>
-									<p className="text-[8px] text-muted-fg leading-tight opacity-70">
-										4+ years · 200+ projects
-									</p>
-								</div>
-							</div>
-							{/* Details View */}
-							<div className="flex h-1/2 shrink-0 flex-col justify-between">
-								<h3 className="font-bold text-[9px] text-primary uppercase tracking-wide">
-									Experience Details
-								</h3>
-								<div className="space-y-1">
-									<div>
-										<p className="font-semibold text-[9px] text-fg">
-											EnhancedLab (Feb 2025 – Nov 2025)
-										</p>
-										<p className="text-[8px] text-muted-fg opacity-70">
-											Frontend Lead · DApp & Marketing
-										</p>
-									</div>
-									<div>
-										<p className="font-semibold text-[9px] text-fg">
-											SyncX (Nov 2023 – Aug 2024)
-										</p>
-										<p className="text-[8px] text-muted-fg opacity-70">
-											Frontend Lead · Trading Platform
-										</p>
-									</div>
-									<div>
-										<p className="font-semibold text-[9px] text-fg">
-											Moonlab (Apr 2022 – Aug 2023)
-										</p>
-										<p className="text-[8px] text-muted-fg opacity-70">
-											Frontend Lead · 200+ Web3 Projects
-										</p>
-									</div>
-									<div>
-										<p className="font-semibold text-[9px] text-fg">
-											Teracom (Jun 2021 – Apr 2022)
-										</p>
-										<p className="text-[8px] text-muted-fg opacity-70">
-											Frontend Engineer · Enterprise Systems
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Education - Auto Slide */}
-				<div
-					ref={educationRef}
-					className="group relative col-span-2 row-span-2 cursor-pointer overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-3 backdrop-blur-md transition-all duration-300 hover:border-primary/50 md:col-span-2 md:row-span-1"
-				>
-					<div className="relative h-full w-full overflow-hidden">
-						<div className="slide-content flex h-[200%] flex-col">
-							{/* Front View */}
-							<div className="flex h-1/2 shrink-0 flex-col justify-between">
-								<div className="flex items-center gap-1.5">
-									<GraduationCap className="h-2.5 w-2.5 text-primary" />
-									<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-										Education
-									</h3>
-								</div>
-								<div className="space-y-0.5">
-									<span className="block font-semibold text-[10px] text-fg leading-tight">
-										Software Engineering
-									</span>
-									<p className="text-[8px] text-muted-fg leading-tight opacity-70">
-										Auto-cycling...
-									</p>
-								</div>
-							</div>
-							{/* Details View */}
-							<div className="flex h-1/2 shrink-0 flex-col justify-between">
-								<h3 className="font-bold text-[9px] text-primary uppercase tracking-wide">
-									Education Details
-								</h3>
-								<div className="space-y-1">
-									<p className="font-semibold text-[9px] text-fg">
-										Academy of Cryptography Techniques
-									</p>
-									<p className="text-[8px] text-muted-fg opacity-70">
-										Software Engineering
-									</p>
-									<p className="text-[8px] text-muted-fg opacity-70">
-										2017 – 2022
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Current Focus - AI (Highlighted) */}
-				<div className="group relative col-span-4 row-span-1 overflow-hidden rounded-3xl border border-primary/50 bg-linear-to-br from-primary/5 to-bg p-3 backdrop-blur-md transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/10 md:col-span-2 md:row-span-1">
-					<div className="flex h-full flex-col justify-between">
-						<div className="flex items-center gap-1.5">
-							<TrendingUp className="h-2.5 w-2.5 text-primary" />
-							<h3 className="font-bold text-[9px] text-primary uppercase tracking-wide">
-								Current Focus
-							</h3>
-						</div>
-						<div className="space-y-0.5">
-							<p className="font-semibold text-[10px] text-fg leading-tight">
-								AI-Assisted Development
-							</p>
-							<p className="text-[8px] text-muted-fg leading-tight opacity-70">
-								Claude Code · AI workflows
-							</p>
-						</div>
-					</div>
-				</div>
-
-				{/* Projects - Auto Slide */}
-				<div
-					ref={projectsRef}
-					className="group relative col-span-4 row-span-1 cursor-pointer overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-3 backdrop-blur-md transition-all duration-300 hover:border-primary/50 md:col-span-2 md:row-span-1"
-				>
-					<div className="relative h-full w-full overflow-hidden">
-						<div className="slide-content flex h-[200%] flex-col">
-							{/* Front View */}
-							<div className="flex h-1/2 shrink-0 flex-col justify-between">
-								<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-									Notable Projects
-								</h3>
-								<div className="space-y-0.5">
-									<p className="font-semibold text-[10px] text-fg leading-tight">
-										200+ Web3 Projects
-									</p>
-									<p className="text-[8px] text-muted-fg leading-tight opacity-70">
-										Auto-cycling...
-									</p>
-								</div>
-							</div>
-							{/* Details View */}
-							<div className="flex h-1/2 shrink-0 flex-col justify-between">
-								<h3 className="font-bold text-[9px] text-primary uppercase tracking-wide">
-									Project Highlights
-								</h3>
-								<div className="space-y-0.5">
-									<p className="text-[8px] text-fg">
-										• RunTogether: 7,413 assets sold in 30 min
-									</p>
-									<p className="text-[8px] text-fg">
-										• Trading platforms with real-time updates
-									</p>
-									<p className="text-[8px] text-fg">• 3D DApps with Three.js</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Row 4-5: Tech Stack (Combined) */}
-				{/* Tech Stack - Auto Slide */}
-				<div
-					ref={techStackRef}
-					className="group relative col-span-4 row-span-2 cursor-pointer overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-4 backdrop-blur-md transition-all duration-300 hover:border-primary/50 md:col-span-6 md:row-span-1"
-				>
-					<div className="relative h-full w-full overflow-hidden">
-						<div className="slide-content flex h-[200%] flex-col">
-							{/* Front View */}
-							<div className="flex h-1/2 shrink-0 flex-col justify-between gap-3 md:flex-row md:items-center">
-								{/* Frontend */}
-								<div className="flex flex-1 flex-col gap-2">
-									<div className="flex items-center gap-1.5">
-										<Code2 className="h-2.5 w-2.5 text-primary" />
-										<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-											Frontend
-										</h3>
-									</div>
-									<div className="flex flex-wrap gap-1">
-										{[
-											"React",
-											"TypeScript",
-											"Next.js",
-											"Remix",
-											"Vite",
-											"TailwindCSS",
-											"Shadcn/UI",
-											"TanStack",
-											"Redux",
-											"Zustand",
-											"Valtio",
-										].map((tech) => (
-											<span
-												key={tech}
-												className="rounded-lg border border-border/50 bg-muted/20 px-1.5 py-0.5 font-medium text-[8px] text-muted-fg transition-all hover:border-primary hover:text-primary"
-											>
-												{tech}
-											</span>
-										))}
-									</div>
-								</div>
-
-								{/* Divider */}
-								<div className="hidden h-12 w-px bg-border/50 md:block" />
-
-								{/* State Management */}
-								<div className="flex flex-1 flex-col gap-2">
-									<div className="flex items-center gap-1.5">
-										<Code2 className="h-2.5 w-2.5 text-primary" />
-										<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-											State & Backend
-										</h3>
-									</div>
-									<div className="flex flex-wrap gap-1">
-										{["NestJS", "Hono", "Redux", "Zustand", "Valtio"].map(
-											(tech) => (
-												<span
-													key={tech}
-													className="rounded-lg border border-border/50 bg-muted/20 px-1.5 py-0.5 font-medium text-[8px] text-muted-fg transition-all hover:border-primary hover:text-primary"
-												>
-													{tech}
-												</span>
-											),
-										)}
-									</div>
-								</div>
-							</div>
-							{/* Details View */}
-							<div className="flex h-1/2 shrink-0 flex-col justify-between gap-2">
-								<h3 className="font-bold text-[9px] text-primary uppercase tracking-wide">
-									Full Tech Stack
-								</h3>
-								<div className="grid grid-cols-2 gap-2 text-[8px] md:grid-cols-3">
-									<div>
-										<p className="mb-1 font-semibold text-fg">Frontend</p>
-										<p className="text-muted-fg opacity-70">
-											React · TypeScript · Next.js · Remix · Vite · TailwindCSS
-											· Shadcn/UI · TanStack
-										</p>
-									</div>
-									<div>
-										<p className="mb-1 font-semibold text-fg">
-											State & Backend
-										</p>
-										<p className="text-muted-fg opacity-70">
-											Redux · Zustand · Valtio · NestJS · Hono
-										</p>
-									</div>
-									<div>
-										<p className="mb-1 font-semibold text-fg">Specialties</p>
-										<p className="text-muted-fg opacity-70">
-											Real-time UI · Design Systems · Performance Optimization ·
-											Claude Code
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Languages & Interests Combined */}
-				<div className="group relative col-span-4 row-span-2 overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-4 backdrop-blur-md transition-all hover:shadow-lg hover:shadow-primary/5 md:col-span-2 md:row-span-1">
-					<div className="flex h-full flex-col justify-between gap-3">
-						{/* Languages */}
-						<div className="flex flex-col gap-1">
-							<div className="flex items-center gap-1.5">
-								<Globe className="h-2.5 w-2.5 text-primary" />
-								<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-									Languages
-								</h3>
-							</div>
-							<div className="flex gap-3">
-								<p className="text-[9px] text-fg">
-									<span className="font-semibold">Vietnamese</span>{" "}
-									<span className="text-muted-fg opacity-60">· Native</span>
-								</p>
-								<p className="text-[9px] text-fg">
-									<span className="font-semibold">English</span>{" "}
-									<span className="text-muted-fg opacity-60">
-										· Professional
-									</span>
-								</p>
-							</div>
-						</div>
-
-						{/* Interests */}
-						<div className="flex flex-col gap-1">
-							<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-								Interests
-							</h3>
-							<p className="text-[9px] text-muted-fg leading-tight opacity-70">
-								Creative Development · Design Systems · Performance
-							</p>
-						</div>
-					</div>
-				</div>
-
-				{/* Row 5: Location & Contact + Status */}
-				{/* Location, Contact & CV Combined */}
-				<div className="group relative col-span-4 row-span-1 overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 backdrop-blur-md transition-all hover:shadow-lg hover:shadow-primary/5 md:col-span-4 md:row-span-1">
-					<div className="flex h-full flex-col items-start justify-between gap-2 p-3 md:flex-row md:items-center md:gap-3">
-						<div className="flex items-center gap-3">
-							<div className="flex items-center gap-1.5">
-								<MapPin className="h-2.5 w-2.5 text-primary" />
-								<div>
-									<p className="font-semibold text-[9px] text-fg">
-										Hanoi, Vietnam
-									</p>
-									<p className="text-[8px] text-muted-fg opacity-70">
-										GMT+7 · Remote
-									</p>
-								</div>
-							</div>
-						</div>
-						<div className="flex items-center gap-1.5 md:gap-2">
-							<a
-								href={`mailto:${contact.email}`}
-								className="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/20 px-2 py-1 transition-all hover:border-primary hover:bg-primary/5"
-							>
-								<Mail className="h-2.5 w-2.5 text-primary" />
-								<span className="hidden text-[8px] text-fg md:inline">
-									Email
-								</span>
-							</a>
-							{contact.socials.map((social) => {
-								const IconComponent = getIconComponent(social.icon)
-								return (
-									<a
-										key={social.name}
-										href={social.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="flex h-7 w-7 items-center justify-center rounded-lg border border-border/50 bg-muted/20 transition-all hover:scale-110 hover:border-primary hover:bg-primary/5"
-										title={social.name}
-									>
-										<IconComponent className="h-3 w-3 text-primary" />
-									</a>
-								)
-							})}
-							<a
-								href="/cv.pdf"
-								download
-								className="flex items-center gap-1 rounded-lg border border-primary bg-primary/10 px-2.5 py-1 transition-all hover:bg-primary hover:text-primary-fg"
-							>
-								<Download className="h-2.5 w-2.5 text-primary transition-colors group-hover:text-primary-fg" />
-								<span className="font-bold text-[8px] text-primary uppercase tracking-wide transition-colors group-hover:text-primary-fg">
-									CV
-								</span>
-							</a>
-						</div>
-					</div>
-				</div>
-
-				{/* Status */}
-				<div className="group relative col-span-4 row-span-1 overflow-hidden rounded-3xl border border-border bg-linear-to-br from-bg to-muted/20 p-3 backdrop-blur-md transition-all hover:shadow-green-500/10 hover:shadow-lg md:col-span-2 md:row-span-1">
-					<div className="flex h-full flex-col justify-between">
-						<h3 className="font-bold text-[9px] text-fg uppercase tracking-wide opacity-70">
-							Status
-						</h3>
-						<div className="flex items-center gap-1.5">
-							<span className="relative flex h-1.5 w-1.5">
-								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-								<span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" />
-							</span>
-							<span className="font-medium text-[9px] text-fg">Available</span>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>

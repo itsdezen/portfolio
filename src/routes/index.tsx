@@ -2,18 +2,18 @@
 
 import { createFileRoute } from "@tanstack/react-router"
 import {
-	AboutSectionNew,
+	AboutSection,
 	aboutData,
-	ContactSectionNew,
+	ContactSection,
 	contactData,
 	ExperienceSection,
 	experiences,
-	FooterNew,
+	Footer,
 	HeroSection,
-	NavigationNew,
+	Navigation,
 	OSSSection,
 	ossPackages,
-	ProjectsSectionNew,
+	ProjectsSection,
 	projects,
 	SkillsSection,
 	skillCategories,
@@ -26,17 +26,17 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
 	return (
 		<>
-			<NavigationNew />
+			<Navigation />
 			<main>
 				<HeroSection />
-				<AboutSectionNew about={aboutData} />
-				<ProjectsSectionNew projects={projects} />
+				<AboutSection about={aboutData} />
+				<ProjectsSection projects={projects} />
 				<OSSSection packages={ossPackages} />
 				<SkillsSection categories={skillCategories} />
 				<ExperienceSection experiences={experiences} />
-				<ContactSectionNew contact={contactData} />
+				<ContactSection contact={contactData} />
 			</main>
-			<FooterNew />
+			<Footer />
 		</>
 	)
 }
