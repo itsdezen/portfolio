@@ -5,6 +5,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router"
 import { AnimatedBackground } from "~/shared/components/animated-background"
+import { useLenis } from "~/shared/hooks"
 import appCss from "../styles.css?url"
 
 export const Route = createRootRoute({
@@ -188,6 +189,8 @@ export const Route = createRootRoute({
 })
 
 function RootDocument() {
+	useLenis()
+
 	return (
 		<html lang="en" className="dark">
 			<head>

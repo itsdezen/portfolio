@@ -477,7 +477,6 @@
 
   /* Scroll snap for smooth section scrolling */
   html {
-    scroll-behavior: smooth;
     scroll-snap-type: y proximity;
   }
 }

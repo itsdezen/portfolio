@@ -7,7 +7,10 @@ import { useEffect, useRef, useState } from "react"
 import { cn } from "~/shared/utils"
 import { portfolioData } from "../portfolio-data"
 
-gsap.registerPlugin(ScrollTrigger, useGSAP)
+// Register plugin on client side only
+if (typeof window !== "undefined") {
+	gsap.registerPlugin(ScrollTrigger, useGSAP)
+}
 
 export function HeroSection() {
 	const sectionRef = useRef<HTMLElement>(null)

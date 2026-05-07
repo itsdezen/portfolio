@@ -8,7 +8,10 @@ import { useScrollReveal } from "~/shared/hooks"
 import { cn } from "~/shared/utils"
 import type { Project } from "../portfolio-types"
 
-gsap.registerPlugin(ScrollTrigger)
+// Register plugin on client side only
+if (typeof window !== "undefined") {
+	gsap.registerPlugin(ScrollTrigger)
+}
 
 interface ProjectsSectionProps {
 	projects: Project[]
