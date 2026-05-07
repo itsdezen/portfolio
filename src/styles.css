@@ -480,10 +480,4 @@
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
   }
-
-  /* Sections snap to position below navigation */
-  section[id]:not(#projects) {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-  }
 }

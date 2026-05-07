@@ -74,7 +74,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 					card,
 					{
 						yPercent: 0,
-						ease: "none",
+						ease: "power1.inOut",
 					},
 					index,
 				)
