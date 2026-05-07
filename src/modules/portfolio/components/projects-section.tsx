@@ -32,20 +32,15 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 			const cards = projectRefs.current.filter(Boolean)
 			if (!stack || cards.length === 0) return
 
-			gsap.set(cards, {
-				clearProps: "all",
-				transformOrigin: "50% 0%",
-			})
-
+			// Set initial states
 			cards.forEach((card, index) => {
 				gsap.set(card, {
+					transformOrigin: "50% 0%",
 					zIndex: index + 1,
-					yPercent: index === 0 ? 0 : 100,
-					rotateX: 0,
-					rotateZ: 0,
 				})
 			})
 
+			// Create timeline for all animations
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: stack,
@@ -56,8 +51,21 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 				},
 			})
 
-			cards.slice(1).forEach((card, index) => {
-				const previousCard = cards[index]
+			// Set first card visible
+			tl.set(cards[0], {
+				yPercent: 0,
+				scale: 1,
+				rotateX: 0,
+				rotateZ: 0,
+				opacity: 1,
+			})
+
+			// Animate each transition
+			cards.slice(1).forEach((card, i) => {
+				const previousCard = cards[i]
+				const startTime = i
+
+				// Animate previous card out
 				tl.to(
 					previousCard,
 					{
@@ -65,18 +73,23 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 						yPercent: -10,
 						rotateX: -10,
 						opacity: 0,
-						rotateZ: index % 2 === 0 ? -10 : 10,
+						rotateZ: i % 2 === 0 ? -10 : 10,
 						ease: "none",
+						duration: 1,
 					},
-					index,
+					startTime,
 				)
-				tl.to(
+
+				// Animate new card in
+				tl.fromTo(
 					card,
+					{ yPercent: 100 },
 					{
 						yPercent: 0,
-						ease: "power1.inOut",
+						ease: "none",
+						duration: 1,
 					},
-					index,
+					startTime,
 				)
 			})
 		},
