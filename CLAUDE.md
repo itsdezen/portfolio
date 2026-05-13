@@ -3,7 +3,7 @@
 ## Quick Reference (Critical Rules)
 - **Language:** ALWAYS English for code and documentation
 - **Documentation:** NEVER create markdown files unless explicitly requested or confirm if necessary
-- **Package Manager:** ALWAYS `pnpm`
+- **Package Manager:** ALWAYS `bun`
 - **Type Imports:** `import type { ... }`
 - **Barrel Exports:** Every folder has `index.ts` EXCEPT `modules/index.ts` and `shared/components/index.ts`
 - **Styling:** ALWAYS `cn()` + tokens only, NEVER hardcode colors
@@ -11,7 +11,7 @@
 - **Imports:** `~/modules/[feature]` ✓ NOT `~/modules` ✗
 
 ## Package Manager
-ALWAYS `pnpm` - Never npm, yarn, bun
+ALWAYS `bun` - Never npm, yarn, pnpm
 
 ## TypeScript
 Always: `import type { ... }` for type imports
@@ -52,7 +52,7 @@ Components: `[feature]-components.tsx`
 
 ## Components
 Check exists FIRST: `ls shared/components/ui/[name].tsx`
-If missing: `pnpm dlx shadcn@latest add @[registry]/[name]`
+If missing: `bunx shadcn@latest add @[registry]/[name]`
 Never re-add existing components
 
 Feature components: `modules/[feature]/components/`

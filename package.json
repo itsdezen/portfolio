@@ -12,11 +12,11 @@
 		"lint:fix": "biome lint --write .",
 		"format": "biome format --write .",
 		"format:check": "biome format .",
-		"check": "biome check . && pnpm typecheck",
+		"check": "biome check . && bun typecheck",
 		"fix": "biome check --write .",
 		"prepare": "husky",
-		"deploy": "pnpm run build && wrangler deploy",
-		"preview": "pnpm run build && wrangler dev",
+		"deploy": "bun run build && wrangler deploy",
+		"preview": "bun run build && wrangler dev",
 		"cf-typegen": "wrangler types"
 	},
 	"lint-staged": {
