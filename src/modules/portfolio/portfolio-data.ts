@@ -307,13 +307,13 @@ export const experiences: Experience[] = [
 		id: "1",
 		company: "EnhancedLab",
 		role: "Frontend Lead",
-		period: "Feb 2024 – Nov 2024",
+		period: "Feb 2025 – Nov 2025",
 		description:
-			"Responsible for all web products within TheVapeLabs ecosystem. Built DApp interfaces, sale pages, and marketing websites. Designed scalable frontend architecture for multi-product system with consistent UI/UX. Acted as creative developer, collaborating with designers to build high-end animated landing pages.",
+			"Sole frontend engineer responsible for all web products within the ecosystem. Built DApp interfaces, sale pages, and marketing websites. Designed scalable frontend architecture for multi-product system. Delivered consistent UI/UX across product surfaces. Acted as creative developer, collaborating with designers to build high-end animated landing pages.",
 	},
 	{
 		id: "2",
-		company: "SyncX (Fully Confidential)",
+		company: "SyncX (Confidential)",
 		role: "Frontend Lead",
 		period: "Nov 2023 – Aug 2024",
 		description:
@@ -325,15 +325,15 @@ export const experiences: Experience[] = [
 		role: "Frontend Lead",
 		period: "Apr 2022 – Aug 2023",
 		description:
-			"Delivered 200+ outsourced products (DEX, CEX, launchpads, marketplaces, trading tools). Led RunTogether (7,413 assets sold in 30 minutes, 15,000+ downloads in 6 days, Top #2 Google Play Vietnam), Mcity metaverse platform with Three.js, and Animverse GameFi ecosystem. Defined frontend architecture and engineering standards, mentored engineers and trained interns to full-time conversion.",
+			"Delivered 200+ outsourced Web3 products for international clients. Covered major product categories: DEX, CEX, launchpads, NFT marketplaces, and trading tools. Built reusable frontend architectures to accelerate delivery across multiple projects. Ensured consistent quality, performance, and production readiness at scale. Acted as creative developer across projects, delivering high-end landing pages with rich animations. Defined frontend architecture and engineering standards across projects. Mentored junior engineers and interns to full-time conversion.",
 	},
 	{
 		id: "4",
 		company: "Teracom",
-		role: "Fullstack Engineer (FE-focused) (Intern → Junior)",
+		role: "Frontend Engineer (Intern → Junior)",
 		period: "Jun 2021 – Apr 2022",
 		description:
-			"Built CMS platforms and government portals. Introduced SSR to improve SEO and performance. Refactored large-scale frontend systems (Son La HPC) and migrated legacy systems to Next.js + TypeScript (Vinh Tan TPC).",
+			"Built CMS platforms and government portals. Introduced SSR to improve SEO and performance. Refactored large-scale frontend system (Son La HPC) and migrated legacy system to Next.js + TypeScript (Vinh Tan TPC). Improved performance and maintainability.",
 	},
 ]
 

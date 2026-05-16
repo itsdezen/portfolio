@@ -1,6 +1,6 @@
 # TRUNG TRAN DUY
 
-**Frontend Lead**
+**Frontend Engineer**
 
 * Email: [onepercman@gmail.com](mailto:onepercman@gmail.com)
 * Phone: +84 889 388 820
@@ -13,7 +13,7 @@
 
 Frontend Engineer with 4+ years of experience building scalable, high-performance frontend systems across fintech, enterprise, and consumer products.
 
-Strong focus on real-time systems, complex UI architecture, and zero-to-one product development. Recognized for deep technical expertise, with experience leading frontend initiatives, improving engineering quality, and delivering production-ready systems.
+Strong focus on real-time systems, complex UI architecture, and zero-to-one product development. Deep technical expertise in building production-ready systems, with hands-on experience across the full frontend spectrum — from design systems and component architecture to creative development and advanced animations.
 
 ---
 
@@ -56,7 +56,7 @@ Claude Code (AI agent-assisted development)
 
 **Project: TheVapeLabs**
 
-* Responsible for all web products within the ecosystem
+* Sole frontend engineer responsible for all web products within the ecosystem
 * Built DApp interfaces, sale pages, and marketing websites
 * Designed scalable frontend architecture for multi-product system
 * Delivered consistent UI/UX across product surfaces
@@ -64,7 +64,7 @@ Claude Code (AI agent-assisted development)
 
 ---
 
-### **SyncX (Fully Confidential)** — *Frontend Lead*
+### **SyncX (Confidential)** — *Frontend Lead*
 
 *Nov 2023 – Aug 2024*
 
@@ -82,7 +82,7 @@ Claude Code (AI agent-assisted development)
 
 **Project: Confidential – Trading Platform**
 
-* Led frontend architecture for real-time trading system
+* Architected frontend for real-time trading system
 * Built price charts, trading dashboards, and orderbook visualization
 * Implemented live trade updates and low-latency UI rendering
 * Developed accurate PnL / ROI calculation systems
@@ -103,7 +103,6 @@ Claude Code (AI agent-assisted development)
 
 **Project: Mcity**
 
-* Responsible for all web products of the project
 * Built interactive 3D DApps for metaverse environments
 * Developed NFT marketplace features within 3D context
 * Optimized rendering performance using Three.js and react-three-fiber
@@ -111,7 +110,6 @@ Claude Code (AI agent-assisted development)
 
 **Project: RunTogether**
 
-* Responsible for all web products of the project
 * Built Move-to-Earn platform with DApp integration
 * Developed NFT marketplace and user-facing dashboards
 * Contributed to product achieving:
@@ -122,15 +120,14 @@ Claude Code (AI agent-assisted development)
 
 **Project: Animverse**
 
-* Responsible for all web products of the project
 * Built DApps including NFT marketplace, IDO platform, and sale pages
 * Designed scalable frontend systems for GameFi ecosystem
 * Delivered animated, high-conversion landing pages in collaboration with design team
 
 **Additional Contributions:**
 
-* Defined frontend architecture and engineering standards
-* Mentored engineers and trained interns → full-time conversion
+* Defined frontend architecture and engineering standards across projects
+* Mentored junior engineers and interns → full-time conversion
 
 ---
 
