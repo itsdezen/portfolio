@@ -6,6 +6,12 @@ import {
 } from "@tanstack/react-router"
 import { AnimatedBackground } from "~/shared/components/animated-background"
 import { useLenis } from "~/shared/hooks"
+import {
+	generateItemListSchema,
+	generateOrganizationSchema,
+	generatePersonSchema,
+	generateWebSiteSchema,
+} from "~/shared/utils/seo/schema-helpers"
 import appCss from "../styles.css?url"
 
 export const Route = createRootRoute({
@@ -20,12 +26,13 @@ export const Route = createRootRoute({
 					content: "width=device-width, initial-scale=1",
 				},
 				{
-					title: "onepercman | Fullstack Developer",
+					title:
+						"onepercman - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
 				},
 				{
 					name: "description",
 					content:
-						"Fullstack Engineer specializing in building scalable, high-performance web applications. 5+ years crafting modern solutions with React, TypeScript, Next.js, and Node.js. Available for consulting and collaboration on innovative projects.",
+						"onepercman is a Fullstack Engineer (FE-focused) with 5+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
 				},
 				{
 					name: "keywords",
@@ -43,12 +50,12 @@ export const Route = createRootRoute({
 				{
 					property: "og:title",
 					content:
-						"onepercman | Fullstack Developer - React, TypeScript, Node.js",
+						"onepercman - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
 				},
 				{
 					property: "og:description",
 					content:
-						"Fullstack Developer with 5+ years building complex frontend systems across enterprise, consumer, and fintech products. Expert in React, TypeScript, Next.js, Node.js, Flutter, and Go-lang. Based in Hanoi, Vietnam.",
+						"onepercman is a Fullstack Engineer (FE-focused) with 5+ years building scalable web applications. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
 				},
 				{
 					property: "og:image",
@@ -65,12 +72,12 @@ export const Route = createRootRoute({
 				{
 					name: "twitter:title",
 					content:
-						"onepercman | Fullstack Developer - React, TypeScript, Node.js",
+						"onepercman - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
 				},
 				{
 					name: "twitter:description",
 					content:
-						"Fullstack Developer building complex systems with React, TypeScript, Node.js, and more. Based in Hanoi, Vietnam.",
+						"onepercman is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 5+ years building high-performance web applications. Based in Hanoi, Vietnam.",
 				},
 				{
 					name: "twitter:image",
@@ -87,53 +94,52 @@ export const Route = createRootRoute({
 				{ name: "apple-mobile-web-app-title", content: "onepercman" },
 				{ name: "mobile-web-app-capable", content: "yes" },
 
-				// Schema.org structured data
+				// Schema.org structured data - Multiple schemas for entity recognition
+				// Organization Schema - Establishes "onepercman" as a brand entity
 				{
-					"script:ld+json": {
-						"@context": "https://schema.org",
-						"@type": "Person",
-						name: "Trung Tran Duy",
-						alternateName: "onepercman",
-						description:
-							"Fullstack Developer with 5+ years of experience building complex frontend systems across enterprise, consumer, and fintech products",
-						url: "https://onepercman.com",
-						image: "/thumbnail.png",
-						email: "onepercman@gmail.com",
-						sameAs: [
-							"https://github.com/onepercman",
-							"https://linkedin.com/in/onepercman",
-							"https://t.me/onepercman",
-						],
-						jobTitle: "Fullstack Developer",
-						worksFor: {
-							"@type": "Organization",
-							name: "Freelance",
+					"script:ld+json": generateOrganizationSchema(),
+				},
+				// WebSite Schema - Establishes official website
+				{
+					"script:ld+json": generateWebSiteSchema(),
+				},
+				// Person Schema - Links identity to brand
+				{
+					"script:ld+json": generatePersonSchema(),
+				},
+				// ItemList Schema - Structures portfolio projects
+				{
+					"script:ld+json": generateItemListSchema([
+						{
+							title: "Leet Finance - DeFi Platform",
+							description:
+								"Comprehensive DeFi platform with trading, staking, and analytics",
+							url: "https://onepercman.com#projects",
 						},
-						knowsAbout: [
-							"React",
-							"TypeScript",
-							"Next.js",
-							"Node.js",
-							"Frontend Architecture",
-							"Performance Optimization",
-							"TailwindCSS",
-							"Zustand",
-							"Redux",
-							"Flutter",
-							"Dart",
-							"Go",
-							"Real-time Systems",
-							"Fintech",
-							"Wagmi",
-							"Ethers.js",
-							"Smart Contracts",
-						],
-						address: {
-							"@type": "PostalAddress",
-							addressLocality: "Hanoi",
-							addressCountry: "VN",
+						{
+							title: "Peel.ID - Digital Identity Solution",
+							description: "Web3 identity verification and management platform",
+							url: "https://onepercman.com#projects",
 						},
-					},
+						{
+							title: "Goyomu - Task Management System",
+							description:
+								"Enterprise-grade task and project management application",
+							url: "https://onepercman.com#projects",
+						},
+						{
+							title: "Bazan - Real Estate Platform",
+							description:
+								"Modern real estate marketplace with advanced search",
+							url: "https://onepercman.com#projects",
+						},
+						{
+							title: "Nambla - Web3 Gaming Platform",
+							description:
+								"Blockchain-based gaming platform with NFT integration",
+							url: "https://onepercman.com#projects",
+						},
+					]),
 				},
 			],
 			links: [
@@ -197,6 +203,11 @@ function RootDocument() {
 				<HeadContent />
 			</head>
 			<body>
+				{/* Hidden H1 for SEO - establishes "onepercman" as primary brand keyword */}
+				<h1 className="sr-only">
+					onepercman - Fullstack Engineer (FE-focused) specializing in React,
+					TypeScript, and Next.js
+				</h1>
 				<AnimatedBackground variant="dark" />
 				<Outlet />
 				<Scripts />
