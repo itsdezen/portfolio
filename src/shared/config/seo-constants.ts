@@ -18,7 +18,7 @@ export const BRAND = {
 
 	// Full description
 	description:
-		"onepercman is a Fullstack Engineer (FE-focused) with 5+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, and modern frontend architecture.",
+		"onepercman is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, and modern frontend architecture.",
 } as const
 
 export const SITE = {
@@ -130,8 +130,8 @@ export const SEO = {
 
 	description: {
 		short:
-			"onepercman is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 5+ years building high-performance web applications.",
-		long: "onepercman is a Fullstack Engineer (FE-focused) with 5+ years of experience building scalable, high-performance web applications across enterprise, fintech, and consumer products. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture.",
+			"onepercman is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 4+ years building high-performance web applications.",
+		long: "onepercman is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications across enterprise, fintech, and consumer products. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture.",
 	},
 
 	keywords: [

@@ -32,7 +32,7 @@ export const Route = createRootRoute({
 				{
 					name: "description",
 					content:
-						"onepercman is a Fullstack Engineer (FE-focused) with 5+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
+						"onepercman is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
 				},
 				{
 					name: "keywords",
@@ -55,7 +55,7 @@ export const Route = createRootRoute({
 				{
 					property: "og:description",
 					content:
-						"onepercman is a Fullstack Engineer (FE-focused) with 5+ years building scalable web applications. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
+						"onepercman is a Fullstack Engineer (FE-focused) with 4+ years building scalable web applications. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
 				},
 				{
 					property: "og:image",
@@ -77,7 +77,7 @@ export const Route = createRootRoute({
 				{
 					name: "twitter:description",
 					content:
-						"onepercman is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 5+ years building high-performance web applications. Based in Hanoi, Vietnam.",
+						"onepercman is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 4+ years building high-performance web applications. Based in Hanoi, Vietnam.",
 				},
 				{
 					name: "twitter:image",
