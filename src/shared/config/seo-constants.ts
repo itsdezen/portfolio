@@ -1,32 +1,32 @@
 /**
  * SEO Constants - Brand Entity Configuration
- * Centralized brand information for "onepercman" entity recognition
+ * Centralized brand information for "Dezen" entity recognition
  */
 
 export const BRAND = {
 	// Primary brand name - CRITICAL for Google entity recognition
-	name: "onepercman",
+	name: "Dezen",
 
 	// Legal/Real name
 	legalName: "Trung Tran Duy",
 
 	// Alternate spellings/names for entity matching
-	alternateNames: ["onepercman", "Trung Tran Duy", "onepercman.com"],
+	alternateNames: ["Dezen", "Trung Tran Duy", "dezen.me"],
 
 	// Tagline/Slogan
 	tagline: "Fullstack Engineer (FE-focused)",
 
 	// Full description
 	description:
-		"onepercman is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, and modern frontend architecture.",
+		"Dezen is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, and modern frontend architecture.",
 } as const
 
 export const SITE = {
 	// Canonical domain - MUST be consistent everywhere
-	url: "https://onepercman.com",
+	url: "https://dezen.me",
 
 	// Site name for OpenGraph
-	siteName: "onepercman Portfolio",
+	siteName: "Dezen Portfolio",
 
 	// Default locale
 	locale: "en_US",
@@ -40,7 +40,7 @@ export const SITE = {
 
 export const PERSON = {
 	// Email
-	email: "onepercman@gmail.com",
+	email: "itsdezen@gmail.com",
 
 	// Phone
 	telephone: "+84 889 388 820",
@@ -67,16 +67,16 @@ export const PERSON = {
 
 export const SOCIAL = {
 	// Social profiles - MUST use brand name consistently
-	github: "https://github.com/onepercman",
-	linkedin: "https://linkedin.com/in/onepercman",
-	telegram: "https://t.me/onepercman",
-	twitter: "@onepercman",
+	github: "https://github.com/itsdezen",
+	linkedin: "https://linkedin.com/in/itsdezen",
+	telegram: "https://t.me/itsdezen",
+	twitter: "@itsdezenx",
 
 	// All profiles in array for schema
 	profiles: [
-		"https://github.com/onepercman",
-		"https://linkedin.com/in/onepercman",
-		"https://t.me/onepercman",
+		"https://github.com/itsdezen",
+		"https://linkedin.com/in/itsdezen",
+		"https://t.me/itsdezen",
 	],
 } as const
 
@@ -124,19 +124,19 @@ export const SKILLS = {
 export const SEO = {
 	// Default metadata
 	title: {
-		template: "%s | onepercman",
-		default: "onepercman - Fullstack Engineer (FE-focused) | Portfolio",
+		template: "%s | Dezen",
+		default: "Dezen - Fullstack Engineer (FE-focused) | Portfolio",
 	},
 
 	description: {
 		short:
-			"onepercman is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 4+ years building high-performance web applications.",
-		long: "onepercman is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications across enterprise, fintech, and consumer products. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture.",
+			"Dezen is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 4+ years building high-performance web applications.",
+		long: "Dezen is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications across enterprise, fintech, and consumer products. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture.",
 	},
 
 	keywords: [
 		// Brand keywords - FIRST for priority
-		"onepercman",
+		"Dezen",
 		"Trung Tran Duy",
 
 		// Role keywords
@@ -170,14 +170,14 @@ export const SEO = {
 		url: "/thumbnail.png",
 		width: 1200,
 		height: 630,
-		alt: "onepercman - Fullstack Engineer Portfolio",
+		alt: "Dezen - Fullstack Engineer Portfolio",
 	},
 } as const
 
 export const COMPANY = {
 	// Organization info for schema
-	name: "onepercman",
-	legalName: "onepercman",
+	name: "Dezen",
+	legalName: "Dezen",
 	foundingDate: "2020",
 	description:
 		"Independent software engineering brand specializing in fullstack web development",

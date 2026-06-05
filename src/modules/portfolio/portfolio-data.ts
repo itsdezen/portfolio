@@ -10,7 +10,7 @@ import type {
 
 export const heroData = {
 	name: "Trung Tran Duy",
-	nickname: "onepercman",
+	nickname: "Dezen",
 	headline: "Less complexity,\nmore impact.",
 	tagline:
 		"Fullstack Engineer (FE-focused) specializing in real-time systems, blockchain architecture, and zero-to-one product development.",
@@ -49,8 +49,8 @@ export const portfolioData = {
 		[{ name: "GSAP" }, { name: "Valtio" }],
 	],
 	website: {
-		domain: "onepercman",
-		extension: ".com",
+		domain: "dezen",
+		extension: ".me",
 	},
 }
 
@@ -230,7 +230,7 @@ export const projects: Project[] = [
 		year: "2024",
 		role: "Creator & Maintainer",
 		tags: ["Tailwind CSS", "Plugin", "TypeScript", "CSS", "npm"],
-		link: "https://github.com/onepercman/tailwindcss-color-schemes",
+		link: "https://github.com/itsdezen/tailwindcss-color-schemes",
 		gradientFrom: "rgba(56, 189, 248, 0.9)",
 		gradientTo: "rgba(99, 102, 241, 0.9)",
 		layout: "desktop",
@@ -246,7 +246,7 @@ export const projects: Project[] = [
 		year: "2024",
 		role: "Creator & Maintainer",
 		tags: ["React", "TypeScript", "Hooks", "Refs", "npm"],
-		link: "https://github.com/onepercman/use-composed-refs",
+		link: "https://github.com/itsdezen/use-composed-refs",
 		gradientFrom: "rgba(16, 185, 129, 0.9)",
 		gradientTo: "rgba(5, 150, 105, 0.9)",
 		layout: "desktop",
@@ -262,7 +262,7 @@ export const projects: Project[] = [
 		year: "2024",
 		role: "Creator & Maintainer",
 		tags: ["React", "Valtio", "State Management", "TypeScript", "npm"],
-		link: "https://github.com/onepercman/use-valtio-store",
+		link: "https://github.com/itsdezen/use-valtio-store",
 		gradientFrom: "rgba(168, 85, 247, 0.9)",
 		gradientTo: "rgba(236, 72, 153, 0.9)",
 		layout: "desktop",
@@ -277,7 +277,7 @@ export const projects: Project[] = [
 		year: "2024",
 		role: "Creator & Maintainer",
 		tags: ["TanStack Start", "React", "TypeScript", "SSR", "Full-stack"],
-		link: "https://github.com/onepercman/tanstack-start-starter",
+		link: "https://github.com/itsdezen/tanstack-start-starter",
 		gradientFrom: "oklch(0.72 0.18 85 / 0.9)",
 		gradientTo: "oklch(0.68 0.20 85 / 0.9)",
 		layout: "desktop",
@@ -338,22 +338,22 @@ export const experiences: Experience[] = [
 ]
 
 export const contactData: ContactInfo = {
-	email: "onepercman@gmail.com",
+	email: "itsdezen@gmail.com",
 	phone: "+84 889 388 820",
 	socials: [
 		{
 			name: "GitHub",
-			url: "https://github.com/onepercman",
+			url: "https://github.com/itsdezen",
 			icon: "github",
 		},
 		{
 			name: "LinkedIn",
-			url: "https://linkedin.com/in/onepercman",
+			url: "https://linkedin.com/in/itsdezen",
 			icon: "linkedin",
 		},
 		{
 			name: "Telegram",
-			url: "https://t.me/onepercman",
+			url: "https://t.me/itsdezen",
 			icon: "send",
 		},
 	],
@@ -364,7 +364,7 @@ export const otherItems: OtherItem[] = [
 		id: "1",
 		title: "GitHub",
 		description: "View my open source projects and contributions",
-		href: "https://github.com/onepercman",
+		href: "https://github.com/itsdezen",
 		icon: "code",
 		gradientFrom: "from-violet-500",
 		gradientTo: "to-purple-500",
@@ -374,7 +374,7 @@ export const otherItems: OtherItem[] = [
 		id: "2",
 		title: "LinkedIn",
 		description: "Connect with me professionally",
-		href: "https://linkedin.com/in/onepercman",
+		href: "https://linkedin.com/in/itsdezen",
 		icon: "linkedin",
 		gradientFrom: "from-blue-500",
 		gradientTo: "to-cyan-500",
@@ -384,7 +384,7 @@ export const otherItems: OtherItem[] = [
 		id: "3",
 		title: "Email Me",
 		description: "Get in touch for opportunities or collaboration",
-		href: "mailto:onepercman@gmail.com",
+		href: "mailto:itsdezen@gmail.com",
 		icon: "mail",
 		gradientFrom: "from-pink-500",
 		gradientTo: "to-rose-500",

@@ -37,7 +37,7 @@ export function Navigation() {
 				href="#"
 				className="font-display font-semibold text-sm text-white tracking-tight"
 			>
-				onepercman
+				Dezen
 			</a>
 
 			<ul className="hidden gap-9 md:flex">

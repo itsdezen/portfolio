@@ -2,10 +2,10 @@
 
 **Frontend Engineer**
 
-* Email: [onepercman@gmail.com](mailto:onepercman@gmail.com)
+* Email: [itsdezen@gmail.com](mailto:itsdezen@gmail.com)
 * Phone: +84 889 388 820
-* GitHub: https://github.com/onepercman
-* LinkedIn: https://linkedin.com/in/onepercman
+* GitHub: https://github.com/itsdezen
+* LinkedIn: https://linkedin.com/in/itsdezen
 
 ---
 

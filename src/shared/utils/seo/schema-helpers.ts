@@ -14,7 +14,7 @@ import {
 
 /**
  * Organization Schema
- * Establishes "onepercman" as a brand entity
+ * Establishes "Dezen" as a brand entity
  * CRITICAL for preventing spell correction to "one pacman"
  */
 export function generateOrganizationSchema() {
@@ -22,7 +22,7 @@ export function generateOrganizationSchema() {
 		"@context": "https://schema.org",
 		"@type": "Organization",
 		"@id": `${SITE.url}/#organization`,
-		name: BRAND.name, // "onepercman"
+		name: BRAND.name, // "Dezen"
 		alternateName: BRAND.legalName, // "Trung Tran Duy"
 		url: SITE.url,
 		logo: {
@@ -55,7 +55,7 @@ export function generateOrganizationSchema() {
 
 /**
  * WebSite Schema
- * Establishes the official website for "onepercman" brand
+ * Establishes the official website for "Dezen" brand
  * Helps Google understand site ownership and authority
  */
 export function generateWebSiteSchema() {
@@ -63,8 +63,8 @@ export function generateWebSiteSchema() {
 		"@context": "https://schema.org",
 		"@type": "WebSite",
 		"@id": `${SITE.url}/#website`,
-		name: BRAND.name, // "onepercman"
-		alternateName: SITE.siteName, // "onepercman Portfolio"
+		name: BRAND.name, // "Dezen"
+		alternateName: SITE.siteName, // "Dezen Portfolio"
 		url: SITE.url,
 		description: BRAND.description,
 		publisher: {
@@ -84,7 +84,7 @@ export function generateWebSiteSchema() {
 
 /**
  * Person Schema (Enhanced)
- * Links personal identity to "onepercman" brand
+ * Links personal identity to "Dezen" brand
  */
 export function generatePersonSchema() {
 	return {
@@ -92,7 +92,7 @@ export function generatePersonSchema() {
 		"@type": "Person",
 		"@id": `${SITE.url}/#person`,
 		name: BRAND.legalName, // "Trung Tran Duy"
-		alternateName: BRAND.name, // "onepercman" - CRITICAL
+		alternateName: BRAND.name, // "Dezen" - CRITICAL
 		givenName: "Trung",
 		familyName: "Tran Duy",
 		description: BRAND.description,
@@ -139,8 +139,8 @@ export function generateItemListSchema(items: ProjectItem[]) {
 		"@context": "https://schema.org",
 		"@type": "ItemList",
 		"@id": `${SITE.url}/#projects`,
-		name: "onepercman Portfolio Projects",
-		description: "Selected projects and work by onepercman",
+		name: "Dezen Portfolio Projects",
+		description: "Selected projects and work by Dezen",
 		numberOfItems: items.length,
 		itemListElement: items.map((item, index) => ({
 			"@type": "ListItem",

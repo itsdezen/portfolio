@@ -27,35 +27,35 @@ export const Route = createRootRoute({
 				},
 				{
 					title:
-						"onepercman - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
+						"Dezen - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
 				},
 				{
 					name: "description",
 					content:
-						"onepercman is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
+						"Dezen is a Fullstack Engineer (FE-focused) with 4+ years of experience building scalable, high-performance web applications. Specializing in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
 				},
 				{
 					name: "keywords",
 					content:
-						"onepercman, Trung Tran Duy, Fullstack Developer, Frontend Lead, React Developer, TypeScript, Next.js, Node.js, Flutter, Dart, Go-lang, Fintech, Frontend Architecture, Performance Optimization, TailwindCSS, Zustand, Redux, Hanoi, Vietnam",
+						"Dezen, Trung Tran Duy, Fullstack Developer, Frontend Lead, React Developer, TypeScript, Next.js, Node.js, Flutter, Dart, Go-lang, Fintech, Frontend Architecture, Performance Optimization, TailwindCSS, Zustand, Redux, Hanoi, Vietnam",
 				},
-				{ name: "author", content: "onepercman (Trung Tran Duy)" },
+				{ name: "author", content: "Dezen (Trung Tran Duy)" },
 				{ name: "robots", content: "index, follow" },
 				{ name: "language", content: "en" },
 				{ name: "revisit-after", content: "7 days" },
 
 				// Open Graph / Facebook
 				{ property: "og:type", content: "website" },
-				{ property: "og:url", content: "https://onepercman.com" },
+				{ property: "og:url", content: "https://dezen.me" },
 				{
 					property: "og:title",
 					content:
-						"onepercman - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
+						"Dezen - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
 				},
 				{
 					property: "og:description",
 					content:
-						"onepercman is a Fullstack Engineer (FE-focused) with 4+ years building scalable web applications. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
+						"Dezen is a Fullstack Engineer (FE-focused) with 4+ years building scalable web applications. Expert in React, TypeScript, Next.js, Node.js, and modern frontend architecture. Based in Hanoi, Vietnam.",
 				},
 				{
 					property: "og:image",
@@ -63,39 +63,39 @@ export const Route = createRootRoute({
 				},
 				{ property: "og:image:width", content: "1200" },
 				{ property: "og:image:height", content: "630" },
-				{ property: "og:site_name", content: "onepercman Portfolio" },
+				{ property: "og:site_name", content: "Dezen Portfolio" },
 				{ property: "og:locale", content: "en_US" },
 
 				// Twitter
 				{ name: "twitter:card", content: "summary_large_image" },
-				{ name: "twitter:url", content: "https://onepercman.com" },
+				{ name: "twitter:url", content: "https://dezen.me" },
 				{
 					name: "twitter:title",
 					content:
-						"onepercman - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
+						"Dezen - Fullstack Engineer (FE-focused) | React, TypeScript, Next.js Expert",
 				},
 				{
 					name: "twitter:description",
 					content:
-						"onepercman is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 4+ years building high-performance web applications. Based in Hanoi, Vietnam.",
+						"Dezen is a Fullstack Engineer specializing in React, TypeScript, and Next.js. 4+ years building high-performance web applications. Based in Hanoi, Vietnam.",
 				},
 				{
 					name: "twitter:image",
 					content: "/thumbnail.png",
 				},
-				{ name: "twitter:site", content: "@onepercman" },
-				{ name: "twitter:creator", content: "@onepercman" },
+				{ name: "twitter:site", content: "@itsdezenx" },
+				{ name: "twitter:creator", content: "@itsdezenx" },
 
 				// Additional SEO
 				{ name: "theme-color", content: "#090909" },
 				{ name: "msapplication-TileColor", content: "#090909" },
 				{ name: "apple-mobile-web-app-capable", content: "yes" },
 				{ name: "apple-mobile-web-app-status-bar-style", content: "default" },
-				{ name: "apple-mobile-web-app-title", content: "onepercman" },
+				{ name: "apple-mobile-web-app-title", content: "Dezen" },
 				{ name: "mobile-web-app-capable", content: "yes" },
 
 				// Schema.org structured data - Multiple schemas for entity recognition
-				// Organization Schema - Establishes "onepercman" as a brand entity
+				// Organization Schema - Establishes "Dezen" as a brand entity
 				{
 					"script:ld+json": generateOrganizationSchema(),
 				},
@@ -114,30 +114,30 @@ export const Route = createRootRoute({
 							title: "Leet Finance - DeFi Platform",
 							description:
 								"Comprehensive DeFi platform with trading, staking, and analytics",
-							url: "https://onepercman.com#projects",
+							url: "https://dezen.me#projects",
 						},
 						{
 							title: "Peel.ID - Digital Identity Solution",
 							description: "Web3 identity verification and management platform",
-							url: "https://onepercman.com#projects",
+							url: "https://dezen.me#projects",
 						},
 						{
 							title: "Goyomu - Task Management System",
 							description:
 								"Enterprise-grade task and project management application",
-							url: "https://onepercman.com#projects",
+							url: "https://dezen.me#projects",
 						},
 						{
 							title: "Bazan - Real Estate Platform",
 							description:
 								"Modern real estate marketplace with advanced search",
-							url: "https://onepercman.com#projects",
+							url: "https://dezen.me#projects",
 						},
 						{
 							title: "Nambla - Web3 Gaming Platform",
 							description:
 								"Blockchain-based gaming platform with NFT integration",
-							url: "https://onepercman.com#projects",
+							url: "https://dezen.me#projects",
 						},
 					]),
 				},
@@ -149,7 +149,7 @@ export const Route = createRootRoute({
 				},
 				{
 					rel: "canonical",
-					href: "https://onepercman.com",
+					href: "https://dezen.me",
 				},
 				{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 				{
@@ -203,9 +203,9 @@ function RootDocument() {
 				<HeadContent />
 			</head>
 			<body>
-				{/* Hidden H1 for SEO - establishes "onepercman" as primary brand keyword */}
+				{/* Hidden H1 for SEO - establishes "Dezen" as primary brand keyword */}
 				<h1 className="sr-only">
-					onepercman - Fullstack Engineer (FE-focused) specializing in React,
+					Dezen - Fullstack Engineer (FE-focused) specializing in React,
 					TypeScript, and Next.js
 				</h1>
 				<AnimatedBackground variant="dark" />

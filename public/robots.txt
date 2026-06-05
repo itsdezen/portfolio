@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://onepercman.com/sitemap.xml
+Sitemap: https://dezen.me/sitemap.xml
 
 # Crawl-delay (optional - 1 second delay)
 Crawl-delay: 1
