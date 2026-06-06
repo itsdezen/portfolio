@@ -40,7 +40,7 @@ export const SITE = {
 
 export const PERSON = {
 	// Email
-	email: "itsdezen@gmail.com",
+	email: "hello@dezen.me",
 
 	// Phone
 	telephone: "+84 889 388 820",

@@ -338,7 +338,7 @@ export const experiences: Experience[] = [
 ]
 
 export const contactData: ContactInfo = {
-	email: "itsdezen@gmail.com",
+	email: "hello@dezen.me",
 	phone: "+84 889 388 820",
 	socials: [
 		{
@@ -384,7 +384,7 @@ export const otherItems: OtherItem[] = [
 		id: "3",
 		title: "Email Me",
 		description: "Get in touch for opportunities or collaboration",
-		href: "mailto:itsdezen@gmail.com",
+		href: "mailto:hello@dezen.me",
 		icon: "mail",
 		gradientFrom: "from-pink-500",
 		gradientTo: "to-rose-500",

@@ -2,7 +2,7 @@
 
 **Frontend Engineer**
 
-* Email: [itsdezen@gmail.com](mailto:itsdezen@gmail.com)
+* Email: [hello@dezen.me](mailto:hello@dezen.me)
 * Phone: +84 889 388 820
 * GitHub: https://github.com/itsdezen
 * LinkedIn: https://linkedin.com/in/itsdezen
