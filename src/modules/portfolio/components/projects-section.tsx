@@ -73,7 +73,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 					previousCard,
 					{
 						scale: 1.5,
-						yPercent: -10,
+						yPercent: -100,
 						rotateX: -10,
 						opacity: 0,
 						rotateZ: i % 2 === 0 ? -10 : 10,
